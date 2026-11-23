@@ -1,7 +1,16 @@
-# 任務 01：候選文獻書目與全文／授權查核
+# 來源清單：任務 01 與任務 02
 
-查核日期：2026-11-23（Asia/Taipei）。狀態：AWAITING_HUMAN_REVIEW。
-候選清單由使用者人工審核並提供；此事不代表授權正式 ingest 或公開發布。本檔僅存書目、連結和查核結論，未保存文章全文。
+更新日期：2026-11-23（Asia/Taipei）。任務 02 狀態：AWAITING_HUMAN_REVIEW。
+原始 7 篇（01–07）全部保留，任務 01 sources.md 已由使用者人工審核；新增 08–09 尚待本輪人工審核。兩次審核都不能推定正式 ingest 或公開發布已獲准。本檔僅存書目、連結和查核結論，未保存文章全文。
+
+## 任務 02 結果摘要
+
+- 來源總數：9 篇；原始 7 篇保留，新增 2 篇 CC BY 4.0 Open Access 人體 RCT。
+- 合法可讀 HTML：6 篇（01、02、03、05、08、09）；仍僅訂閱預覽：3 篇（04、06、07）。
+- 有合法可讀 HTML 且具文章級再利用聲明：5 篇（02、03、05、08、09）。其中 4 篇明示 CC BY 4.0，03 為 CC Attribution、版本待核；01 的再利用授權未確認，未計入此 5 篇。
+- 按「合法可讀全文」口徑，已由 4 篇增加至 6 篇，達到至少 5 篇的來源取得數量目標。按「有明示再利用聲明」口徑為 5 篇，但 03 的版本限制仍須審核；若要求全部明確為 CC BY 4.0，則目前只有 4 篇。
+- 上述均為待審核的來源可用性盤點，正式 ingest 實際完成數仍為 0。
+- 08 補入口腔翻瓣一期癒合；09 補入牙齦切除二期癒合與參數。08 不是皮瓣缺血存活率研究，09 有 HA 共介入，均保留適用範圍限制。
 
 ## 判定方式
 
@@ -23,6 +32,8 @@
 | 05 | Giansiracusa 2024 | 2024;13(18):5402 | MDPI／PMC 已確認 | 官方入口已確認；檔案驗證受阻 | CC BY 4.0 | 禁止，待審核 |
 | 06 | Chang 2024 | 2024;39:109 | 出版社僅訂閱預覽 | 合法出版社購買／機構途徑；未取得 | 出版社明示 exclusive rights；未見 CC | 禁止，待審核 |
 | 07 | Batista 2025 | 正式卷年 2026;41:5；線上 2025-12-29 | 出版社僅訂閱預覽 | 合法出版社購買／機構途徑；未取得 | 出版社明示 exclusive rights；未見 CC | 禁止，待審核 |
+| 08 | da Silva Azevedo 2026（新增） | 2026;41(1):156 | 出版社／PMC 已確認 | 官方入口；本輪未驗證檔案 | CC BY 4.0 | 禁止，待本輪審核 |
+| 09 | Yakout 2023（新增） | 2023;23:805 | 出版社／PMC 已確認 | 官方入口；本輪未驗證檔案 | CC BY 4.0 | 禁止，待本輪審核 |
 
 ## 01 — Hamblin
 
@@ -109,6 +120,53 @@
 - 授權：出版社明示 exclusive rights，未見 CC。未取得本專案再散布許可。
 - 證據：[出版社書目、日期、正式引用與權利區塊](https://link.springer.com/article/10.1007/s10103-025-04791-3)；[PubMed 完整記錄](https://pubmed.ncbi.nlm.nih.gov/41460532/)。
 - 查核日期：2026-11-23。結論：書目確認並標示卷年差異；全文與再散布權受限制；等待人工審核。
+
+## 08 — da Silva Azevedo et al.（任務 02 新增，待人工審核）
+
+- DOI：[10.1007/s10103-026-04950-0](https://doi.org/10.1007/s10103-026-04950-0)。
+- 作者：Marcela Letícia da Silva Azevedo；Francisco Leonardo da Silva Júnior；Tasso Ehm Martins；Ádylla Rominne Lima Barbosa；Valkleidson Santos de Araújo；Régia Carla Medeiros da Silva；Mariana Linhares Almeida-Veloso；Euler Maciel Dantas；Bruno Cesar de Vasconcelos Gurgel；Ana Rafaela Luz de Aquino Martins。
+- 題名：Photobiomodulation for primary wound healing and patient-reported outcomes after esthetic crown lengthening surgery: A pilot randomized clinical trial。
+- 期刊與年份：Lasers in Medical Science. 2026;41(1):156（文章號）；出版社發表日／Version of record：2026-07-20。
+- 研究類型：人體 split-mouth、triple-blind pilot RCT，27 位受試者。研究全厚瓣與骨切除後的一期癒合；不是皮瓣缺血存活率試驗。
+- 主題適配：補足口腔翻瓣傷口與參數。正文確認 660 nm、100 mW、非接觸掃描 5 分鐘；對照為 sham。納入來源不以療效正向為條件：本文未顯示傷口癒合或疼痛的顯著組間改善。
+- PMID：42472732；PMCID：PMC13381380，由成功開啟的 PMC 文章頁核對。
+- 全文：出版社與 PMC 均成功讀到正文；出版社 Methods 的 Surgical protocol and PBM application 可讀。後續一次 PMC Table 1 定位請求遇瀏覽器驗證頁；出版社正文仍可核對，不將該次驗證頁當作全文成功。
+- PDF：出版社提供官方入口；任務 02 未測試 PDF 檔案，不記為 PDF 已驗證。
+- 授權：出版社 Rights and permissions 與 PMC 文章聲明均為 CC BY 4.0；須署名、連結授權及標註修改，另標權利的第三方材料須另行判定。
+- 證據：[出版社書目／正文／授權](https://link.springer.com/article/10.1007/s10103-026-04950-0)；[PMC 書目與全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC13381380/)；[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 查核日期：2026-11-23。狀態：合法 HTML、書目、研究類型與授權已確認；新增候選待人工審核；正式 ingest 禁止。
+
+## 09 — Yakout et al.（任務 02 新增，待人工審核）
+
+- DOI：[10.1186/s12903-023-03519-5](https://doi.org/10.1186/s12903-023-03519-5)。
+- 作者：Basma Khalil Yakout；Fatma Ramzy Kamel；Maha Abd El-Aziz Abou Khadr；Lamia Ahmed Hassan Heikal；Gillan Ibrahim El-Kimary。
+- 題名：Efficacy of hyaluronic acid gel and photobiomodulation therapy on wound healing after surgical gingivectomy: a randomized controlled clinical trial。
+- 期刊與年份：BMC Oral Health. 2023;23:805（文章號）；出版社發表日／Version of record：2023-10-27。
+- 研究類型：人體隨機對照臨床試驗，26 個手術部位；評估者盲化，操作者與受試者無法盲化。比較 PBM＋2% HA 與 PBM。
+- 主題適配：直接涉及牙齦切除後二期癒合，可補足 wound healing 與 PBM parameters。正文提供 980 nm、0.2 W、60 秒、3 J/cm²；此為來源辨識用的簡要參數，非臨床建議。
+- 解讀限制：兩組均接受 PBM，缺乏無 PBM／sham 組；組間差異不能當作 PBM 對自然癒合的獨立療效。登錄為 retrospective；本階段未做完整偏差風險評估。
+- PMID：37891549；PMCID：PMC10612174，由 PMC 文章頁核對。
+- 全文：出版社與 PMC 均可讀到 Methods、Results 與授權區塊，不是僅摘要。
+- PDF：出版社提供官方入口；任務 02 未測試 PDF 檔案，不記為 PDF 已驗證。
+- 授權：出版社 Rights and permissions 與 PMC 文章聲明均明示 CC BY 4.0；須署名、連結授權、標註修改並尊重第三方材料例外。資料 CC0 不擴張至整篇文章。
+- 證據：[出版社書目／正文／授權](https://link.springer.com/article/10.1186/s12903-023-03519-5)；[PMC 書目與全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/)；[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+- 查核日期：2026-11-23。狀態：合法 HTML、書目、研究類型與授權已確認；新增候選待人工審核；正式 ingest 禁止。
+
+## 任務 02：原有來源重新檢查
+
+以下為本輪實際再次開啟原來源頁面的結果；原始 01–07 書目與任務 01 記錄均保留，沒有用新增文獻取代。查核日期：2026-11-23。
+
+| ID | 本輪實際查閱來源 | 本輪觀察 | 狀態處理 |
+| --- | --- | --- | --- |
+| 01 | [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/) | 作者稿正文可讀；未確認文章級 CC 授權 | 保留可讀，授權待核；不算入明確再利用聲明的 5 篇 |
+| 02 | [出版社](https://link.springer.com/article/10.1186/s12903-022-02229-8) | Methods 正文可讀；Rights and permissions 為 CC BY 4.0 | 保留可讀及授權確認 |
+| 03 | [PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/) | 正文可讀；CC Attribution 聲明仍未註明版本 | 保留可讀與再利用聲明，CC 確切版本仍待核 |
+| 04 | [出版社](https://link.springer.com/article/10.1007/s10103-025-04445-4) | subscription preview、機構登入／購買選項 | 保留候選；全文未取得，不計入目標 |
+| 05 | [MDPI](https://www.mdpi.com/2077-0383/13/18/5402) | Materials and Methods 正文可讀；頁尾明示 CC BY 4.0 | 保留可讀及授權確認 |
+| 06 | [出版社](https://link.springer.com/article/10.1007/s10103-024-04055-6) | subscription preview；權利區塊仍為 exclusive rights | 保留候選；全文未取得，不計入目標 |
+| 07 | [出版社](https://link.springer.com/article/10.1007/s10103-025-04791-3) | subscription preview、機構登入／購買選項 | 保留候選；全文未取得，不計入目標 |
+
+本輪未重新測試原有 PDF，也未重新完成 04、06 的 PubMed 識別碼覆核；原任務 01 的 PDF 與 PMID 狀態不因本輪 HTML 複查而升級。07 的文章級再利用授權未重查，保留任務 01 判定。
 
 ## 下一步界線
 
