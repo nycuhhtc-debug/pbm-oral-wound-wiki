@@ -1,0 +1,10 @@
+# Full text requires separate approval and redistribution review.
+/literature/*
+!/literature/.gitkeep
+*.pdf
+*.epub
+.env
+.env.*
+!.env.example
+Thumbs.db
+.DS_Store
