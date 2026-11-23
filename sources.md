@@ -1,3 +1,44 @@
+# 任務 03：正式全文匯入與 Evidence Cards
+
+更新日期：2026-11-23（Asia/Taipei）。狀態：AWAITING_HUMAN_REVIEW。
+使用者已在任務03明確核准01、02、03、05、08、09正式匯入；08與09 DOI由任務02 sources.md讀出後對照原文。本節是目前狀態；下方任務01／02為保留的歷史，不以其當時「禁止匯入／0篇」覆寫本次授權。
+
+本輪成功解析六篇合法可讀全文，形成六張卡片；不保存或提交原始全文。INGESTED是「全文已實際讀取並解析為卡片」，不是只存DOI／摘要／PDF入口，也不等同QA通過。詳見 [log](wiki/log.md) 與 [獨立查核步驟](reviews/task03-audit.md)。
+
+| ID | 全文匯入 | 卡片查核 | 定位完整性／主要待決問題 |
+| --- | --- | --- | --- |
+| 01 | INGESTED | PASS_WITH_LIMITS | 本卡主張均有section／figure；屬機轉綜述，原始實驗未重審；全文再散布授權未確認 |
+| 02 | INGESTED | NEEDS_HUMAN_REVIEW | 主要結果有Table 2–6；劑量、時程及Table 5計數矛盾已定位，不能解除 |
+| 03 | INGESTED | NEEDS_HUMAN_REVIEW | Methods與PDF p.5 Table 2；功率／時間／能量矛盾、病人內多牙群聚待核 |
+| 05 | INGESTED | NEEDS_HUMAN_REVIEW | §2–5／Table 4；VAS CI、AO數字、Q／I²與骨結果矛盾已定位，不能解讀成可靠合併療效 |
+| 08 | INGESTED | NEEDS_HUMAN_REVIEW | Methods／PDF p.4、7 Table 1、3–5；登錄時序、配對分析與生活品質歸因待核 |
+| 09 | INGESTED | PASS_WITH_LIMITS | Methods／PMC Table 1、4／Fig.5及結果文字；HA＋guard共介入，非獨立PBM療效 |
+
+## 來源／版本／授權與正式卡片
+
+| ID | DOI／合法全文URL | 本輪實際版本與授權 | Evidence Card |
+| --- | --- | --- | --- |
+| 01 | [10.1111/php.12864](https://doi.org/10.1111/php.12864)；[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/)／[Wiley](https://onlinelibrary.wiley.com/doi/10.1111/php.12864) | PMC作者稿；Wiley Free Access；未確認CC全文再散布。只存自撰事實摘要 | [01](cards/01-hamblin-2018.md) |
+| 02 | [10.1186/s12903-022-02229-8](https://doi.org/10.1186/s12903-022-02229-8)；[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/)／[出版社](https://link.springer.com/article/10.1186/s12903-022-02229-8) | 出版文章HTML；CC BY 4.0；主要表格已解析 | [02](cards/02-morshedzadeh-2022.md) |
+| 03 | [10.4317/medoral.24228](https://doi.org/10.4317/medoral.24228)；[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/)／[官方PDF](https://medicinaoral.com/medoralfree01/aop/24228.pdf) | 出版文章HTML／PDF（8頁）；CC Attribution版本仍未明；PDF不提交 | [03](cards/03-isolan-2021.md) |
+| 05 | [10.3390/jcm13185402](https://doi.org/10.3390/jcm13185402)；[MDPI](https://www.mdpi.com/2077-0383/13/18/5402)／[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC11432466/) | 出版文章HTML；CC BY 4.0；無自造合併療效 | [05](cards/05-giansiracusa-2024.md) |
+| 08 | [10.1007/s10103-026-04950-0](https://doi.org/10.1007/s10103-026-04950-0)；[出版社](https://link.springer.com/article/10.1007/s10103-026-04950-0)／[官方PDF](https://link.springer.com/content/pdf/10.1007/s10103-026-04950-0.pdf) | 出版社VoR HTML／PDF（11頁）；CC BY 4.0；PMC本輪遇驗證頁，不計為成功來源 | [08](cards/08-da-silva-azevedo-2026.md) |
+| 09 | [10.1186/s12903-023-03519-5](https://doi.org/10.1186/s12903-023-03519-5)；[出版社](https://link.springer.com/article/10.1186/s12903-023-03519-5)／[PMC](https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/) | 出版社VoR HTML／PDF（11頁）及PMC；CC BY 4.0 | [09](cards/09-yakout-2023.md) |
+
+其他原候選04、06、07保留：BLOCKED（前輪僅訂閱預覽，未取得全文），且不在本次六篇核准範圍；任務03未重新下載或將其標INGESTED。
+
+全文取得成功6／6；取得失敗BLOCKED 0／6；需要人類處理的醫學QA 4／6。01／03尚未解除的全文再利用限制另保留，不能因使用者核准工作而推定著作權許可。所有CC引用須署名、連結授權、標示本專案摘要／批判與修改，且不涵蓋另標權利的第三方材料。
+
+## 現行停止點
+
+停止等待任務03人工審核；禁止生成正式Wiki六章、HTML簡報、啟用Pages、改公開或上傳未授權PDF。原始全文、圖表圖片與PDF皆未提交。
+
+---
+
+# 任務 01／02 歷史來源紀錄
+
+下方原文保留，包含當時的待審核／禁止匯入與0篇計數；目前以本頁上方任務03為準。完整書目及早期查核差異仍可追溯。
+
 # 來源清單：任務 01 與任務 02
 
 更新日期：2026-11-23（Asia/Taipei）。任務 02 狀態：AWAITING_HUMAN_REVIEW。
