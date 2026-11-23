@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="PBM 口腔傷口癒合的六章 Wiki、14 張教學簡報與證據查核紀錄。">
+<title>Photobiomodulation (PBM) in Oral Wound Healing</title>
+<style>
+  :root {
+    color-scheme: light;
+    --ink: #172b31; --muted: #4b6265; --teal: #075b52;
+    --paper: #faf9f3; --line: #c9d7cf; --light: #edf3ee;
+    font-family: system-ui, "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+    color: var(--ink); background: var(--paper);
+    line-height: 1.65;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; }
+  .wrap { width: min(69rem, calc(100% - 3rem)); margin-inline: auto; }
+  h1, h2, h3, p, figure { margin: 0; }
+  a { color: var(--teal); text-underline-offset: .2em; }
+  a:hover { text-decoration-thickness: .13em; }
+  :focus-visible { outline: 3px solid #13779b; outline-offset: 4px; }
+  .skip { position: absolute; left: 1rem; top: .6rem; z-index: 2; padding: .4rem .7rem; background: white; transform: translateY(-200%); }
+  .skip:focus { transform: none; }
+  .masthead { border-bottom: 1px solid var(--line); }
+  .masthead .wrap { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .5rem 1.5rem; padding-block: .85rem; }
+  .masthead strong { font-size: .95rem; }
+  .masthead nav { display: flex; flex-wrap: wrap; gap: .25rem 1.2rem; }
+  .masthead a { font-size: .92rem; text-decoration: none; }
+  .masthead a:hover { text-decoration: underline; }
+  .hero { background: #12383b; color: #fffdf2; padding-block: clamp(2.5rem, 7vw, 5.2rem); }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr); align-items: end; gap: clamp(1.5rem, 4.5vw, 4rem); }
+  h1 { font-family: Georgia, "Times New Roman", serif; font-size: clamp(2rem, 5.1vw, 4.45rem); line-height: 1.02; letter-spacing: -.045em; overflow-wrap: anywhere; }
+  .hero p { color: #d8e8e1; margin-top: 1.15rem; max-width: 39rem; }
+  .goals { border-inline-start: 1px solid #6e9b92; padding-inline-start: 1.4rem; }
+  .goals h2 { font-size: 1rem; color: #e6f4ea; }
+  .goals ul { margin: .45rem 0 0; padding-inline-start: 1.2rem; color: #d8e8e1; }
+  .goals li + li { margin-top: .35rem; }
+  .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.45rem; }
+  .button { display: inline-block; padding: .55rem .9rem; border: 1px solid #b8dbcc; border-radius: .35rem; font-weight: 700; text-decoration: none; color: #103a36; background: #cdebdc; }
+  .button:hover { background: #f0f8e9; }
+  .button.secondary { background: transparent; color: #f0f8ed; }
+  .button.secondary:hover { background: #245352; }
+  main > section:not(.hero) { padding-block: clamp(2rem, 5vw, 3.5rem); }
+  .section-title { font-size: clamp(1.48rem, 3vw, 2.2rem); line-height: 1.25; }
+  .section-intro { color: var(--muted); margin-top: .55rem; }
+  .chapters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; list-style: none; padding: 0; margin: 1.25rem 0 0; }
+  .chapters li { background: #fffefa; border: 1px solid var(--line); border-top: 3px solid #548476; border-radius: .45rem; padding: .95rem 1.05rem 1.05rem; }
+  .chapters h3 { font-size: 1.05rem; line-height: 1.4; }
+  .chapters h3 span { display: block; color: var(--muted); font-size: .77rem; letter-spacing: .08em; margin-bottom: .45rem; }
+  .chapters p { color: var(--muted); margin-top: .45rem; font-size: .92rem; }
+  #workflow { background: var(--light); border-block: 1px solid var(--line); }
+  .process { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 1rem; padding: 0; margin: 1.15rem 0; list-style: none; }
+  .process li { position: relative; padding: .75rem .45rem; border: 1px solid var(--line); text-align: center; background: #fffef7; border-radius: .35rem; font-weight: 700; font-size: .94rem; }
+  .process li:not(:last-child)::after { content: "→"; position: absolute; inset-inline-end: -.93rem; top: 50%; transform: translateY(-50%); color: var(--teal); }
+  .process .gate { background: #fff0d6; border-color: #c69d56; }
+  .returns { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .85rem; margin: 0; }
+  .returns div { padding: .8rem .9rem; border-inline-start: 3px solid #588c7c; background: #f9fcf7; }
+  .returns dt { font-weight: 750; }
+  .returns dd { margin: .25rem 0 0; font-size: .91rem; color: var(--muted); }
+  figcaption { margin-top: .85rem; color: var(--muted); font-size: .91rem; }
+  .source-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; margin-top: 1.1rem; }
+  .source-grid h3 { font-size: 1rem; }
+  .source-grid ul { margin: .35rem 0 0; padding-inline-start: 1.2rem; }
+  .policy { margin-top: 1.35rem; padding: .95rem 1.05rem; border: 1px solid var(--line); border-radius: .35rem; background: #fffef7; }
+  .policy h3 { font-size: 1rem; }
+  .policy p { margin-top: .4rem; color: var(--muted); }
+  code { color: var(--ink); overflow-wrap: anywhere; }
+  body > footer { border-top: 1px solid var(--line); padding-block: .9rem; font-size: .88rem; }
+  @media (max-width: 52rem) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .chapters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .process { grid-template-columns: 1fr; gap: 1.15rem; }
+    .process li:not(:last-child)::after { content: "↓"; inset-inline-end: 50%; top: auto; bottom: -1.25rem; transform: translateX(50%); }
+  }
+  @media (max-width: 36rem) {
+    .wrap { width: calc(100% - 2rem); }
+    .chapters, .returns, .source-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#content">跳至主要內容</a>
+<header class="masthead">
+  <div class="wrap">
+    <strong>PBM LLM Wiki</strong>
+    <nav aria-label="主要導覽">
+      <a href="#wiki">六章 Wiki</a>
+      <a href="#workflow">工作流程</a>
+      <a href="#sources">來源與查核</a>
+    </nav>
+  </div>
+</header>
+<main id="content">
+  <section class="hero" aria-labelledby="title">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 id="title" lang="en">Photobiomodulation (PBM) in Oral Wound Healing</h1>
+        <p>碩士班第十週作業。從口腔傷口癒合的研究出發，透過六章 Wiki 與 14 張教學簡報，帶領牙醫學生、PGY 牙醫師及初學臨床工作者練習判讀 PBM 證據。</p>
+        <div class="actions">
+          <a class="button" href="slides/deck.html">開啟 14 張教學簡報</a>
+          <a class="button secondary" href="#wiki">開始閱讀 Wiki</a>
+        </div>
+      </div>
+      <div class="goals">
+        <h2>教學目標</h2>
+        <ul>
+          <li>辨識 PBM 的機轉、功率、能量與能量密度。</li>
+          <li>依傷口、比較組、終點及時間判讀研究結果。</li>
+          <li>從 Wiki 追溯 Evidence Card 與原文定位，辨識證據缺口。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap" id="wiki" aria-labelledby="wiki-title">
+    <h2 class="section-title" id="wiki-title">六章 Wiki</h2>
+    <p class="section-intro">從機轉與參數出發，再讀傷口試驗及臨床證據。各章連結在 GitHub 顯示 Markdown 正文。</p>
+    <ol class="chapters">
+      <li><h3><span>第 01 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/01-mechanisms.md">PBM 基本概念與作用機轉</a></h3><p>從粒線體與氧化還原訊號，理解細胞模型的臨床外推界線。</p></li>
+      <li><h3><span>第 02 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/02-dosimetry.md">PBM 參數、劑量與雙相劑量反應</a></h3><p>練習功率、時間、能量與照射面積換算，區分研究原值和檢算。</p></li>
+      <li><h3><span>第 03 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/03-secondary-healing.md">口腔二期傷口癒合</a></h3><p>從腭側供區與牙齦切除案例，分辨剩餘傷口面積、上皮化與 Landry 指數。</p></li>
+      <li><h3><span>第 04 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/04-flap-healing.md">口腔翻瓣手術傷口癒合與皮瓣存活的證據缺口</a></h3><p>閱讀一期癒合和半弓配對，辨識缺血皮瓣存活率的證據缺口。</p></li>
+      <li><h3><span>第 05 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md">術後疼痛、拔牙傷口與合併治療</a></h3><p>分辨短期 VAS、齒槽修復與 HA／guard 共介入的比較。</p></li>
+      <li><h3><span>第 06 章</span><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/06-evidence-and-safety.md">臨床證據判讀、研究限制與安全應用界線</a></h3><p>查核分析單位、等效與出血訊號，說明可支持的臨床推論。</p></li>
+    </ol>
+  </section>
+
+  <section id="workflow" aria-labelledby="workflow-title">
+    <div class="wrap">
+      <h2 class="section-title" id="workflow-title">LLM Wiki 工作流程</h2>
+      <figure aria-labelledby="workflow-title" aria-describedby="flow-caption">
+        <ol class="process">
+          <li>文獻蒐集</li><li lang="en">Evidence Cards</li><li class="gate">人工審核</li>
+          <li lang="en">Wiki</li><li lang="en">HTML Slides</li><li>測試與修正</li>
+        </ol>
+        <dl class="returns">
+          <div><dt>人工審核 ↩ Evidence Cards</dt><dd>證據不足或來源矛盾時，退回相關卡片與文獻定位，保留未決警示。</dd></div>
+          <div><dt>忠實度檢查 ↩ Wiki／簡報草稿</dt><dd>主張或數字有誤時修正受影響段落；來源不足時退回 Wiki 取證。</dd></div>
+          <div><dt>呈現檢查 ↩ HTML Slides</dt><dd>版面、導覽或連結失敗時修正該頁，再重做忠實度與呈現檢查。</dd></div>
+        </dl>
+        <figcaption id="flow-caption">大綱製作與發布各有人工核准關卡。每項問題最多三次局部重試，仍未解決即停止並交人工。<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/slides/outline.md#graph-工作流程">查看 Graph 及回退規則</a></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap" id="sources" aria-labelledby="sources-title">
+    <h2 class="section-title" id="sources-title">來源與查核</h2>
+    <div class="source-grid">
+      <div>
+        <h3>文獻與 Evidence Cards</h3>
+        <ul>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/sources.md">文獻來源、版本與授權</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/tree/main/cards">六張 Evidence Cards</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/README.md#如何追溯主張">Wiki 來源追溯規則</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>人工審核</h3>
+        <ul>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/reviews/task03-audit.md">Evidence Cards 查核</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/reviews/task05-wiki-review.md">Wiki 正文審核</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/reviews/task06b-html-review.md">HTML 簡報審核</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>專案紀錄</h3>
+        <ul>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/log.md">執行與修訂紀錄</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/report.md">各階段報告</a></li>
+          <li><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/tree/main/reviews">完整審核紀錄</a></li>
+        </ul>
+      </div>
+    </div>
+    <aside class="policy" aria-labelledby="policy-title">
+      <h3 id="policy-title">AI 使用與研究限制</h3>
+      <p>LLM 協助整理來源、起草 Evidence Cards、Wiki 與簡報。主張透過卡片的 K 節追溯至原文，並由人工審核階段成果。來源矛盾與待核標記（<code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code>）按現有紀錄呈現。</p>
+      <p>疼痛、癒合與皮瓣存活分別判讀；無顯著差異不足以確立等效。本專案用於證據判讀教學，所列參數不可拼接成臨床療程。</p>
+    </aside>
+  </section>
+</main>
+<footer><div class="wrap"><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki">在 GitHub 查看專案</a></div></footer>
+</body>
+</html>
