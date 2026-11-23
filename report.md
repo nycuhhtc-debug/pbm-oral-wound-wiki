@@ -1,3 +1,13 @@
+# 任務 06B：HTML 教學簡報
+
+**狀態**：14 張 HTML 簡報已製作，等待人工核准。以 PR #3 合併的核准大綱（main 5b2f61e）為基準。
+
+- [HTML 簡報](slides/deck.html)採單檔 HTML、CSS、JavaScript，含左右鍵、上一張／下一張、頁碼與逐頁來源。第 4、11、12 張使用對照表，第 14 張有學習總結。
+- 逐頁核對核准大綱、數字、警示與 56 個來源連結及錨點。文獻原有 `CONFLICT`、`NEEDS_HUMAN_REVIEW` 與 `PASS_WITH_LIMITS` 保留。
+- 使用本機 HTTP 在 Chromium 測試四種尺寸、逐頁導覽與截圖。雲端瀏覽器的 `file://` 政策限制及實際修訂見 [執行紀錄](wiki/log.md)。待人工核對項目見 [HTML 審核清單](reviews/task06b-html-review.md)。
+
+---
+
 # 任務 06A：HTML 教學簡報大綱規劃
 
 **狀態**：Markdown 大綱已完成，等待人工核准。以合併任務 05 PR #2 的 main（dd3f395）為基準，既有文獻疑點及 QA 標記照錄。以下保留各階段當時的狀態紀錄。

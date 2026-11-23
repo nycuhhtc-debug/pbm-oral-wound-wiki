@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Photobiomodulation (PBM) in Oral Wound Healing</title>
+<style>
+  :root {
+    color-scheme: light;
+    font-family: system-ui, "Noto Sans CJK TC", "Microsoft JhengHei", sans-serif;
+    color: #182c2b;
+    background: #e8eeea;
+    --paper: #fffef8;
+    --teal: #00665d;
+    --line: #cad8ce;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-width: 0; min-height: 100vh; display: flex; flex-direction: column; }
+  .masthead, main, .controls-inner { width: min(100% - 3rem, 82rem); margin-inline: auto; }
+  .masthead { display: flex; justify-content: space-between; gap: .5rem 1rem; flex-wrap: wrap; padding-block: .7rem; font-size: .84rem; }
+  .masthead strong { color: #17433e; }
+  .masthead span { color: #3c5751; }
+  main { flex: 1; margin-bottom: 1rem; }
+  .slide {
+    background: var(--paper); border: 1px solid var(--line); border-top: .35rem solid var(--teal);
+    border-radius: .55rem; padding: clamp(1rem, 3vw, 2.5rem);
+    box-shadow: 0 .6rem 1.8rem #172e2510;
+  }
+  [hidden] { display: none !important; }
+  .topic { margin: 0 0 .5rem; font-size: .86rem; font-weight: 750; letter-spacing: .07em; color: var(--teal); }
+  .course { margin: .2rem 0 .5rem; color: #375a54; font-size: clamp(.95rem, 1.8vw, 1.4rem); font-weight: 600; }
+  h2 { margin: 0; font-size: clamp(1.65rem, 4vw, 3.5rem); line-height: 1.2; letter-spacing: -.035em; }
+  .objective { margin: .75rem 0 0; font-size: clamp(.97rem, 1.55vw, 1.19rem); line-height: 1.55; }
+  .objective strong, .recap strong { color: var(--teal); }
+  .lesson { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 28%); gap: clamp(1rem, 3vw, 2.25rem); align-items: start; margin-block: 1.35rem; }
+  .material, .sources, .evidence { overflow-wrap: anywhere; }
+  .points { margin: 0; padding-inline-start: 1.25em; font-size: clamp(1.05rem, 1.82vw, 1.42rem); line-height: 1.5; }
+  .points li + li { margin-top: .6rem; }
+  .points li::marker { color: var(--teal); }
+  .evidence { background: #fbefda; color: #4c3216; padding: .85rem 1rem; border-inline-start: .24rem solid #a66821; border-radius: .2rem; line-height: 1.5; font-size: clamp(.92rem, 1.3vw, 1.07rem); }
+  .evidence h3 { font-size: 1em; margin: 0 0 .4rem; }
+  .evidence p { margin: 0; }
+  code { font-size: .9em; font-weight: 700; }
+  table { width: 100%; border-collapse: collapse; font-size: clamp(.94rem, 1.45vw, 1.13rem); line-height: 1.48; }
+  th, td { text-align: start; vertical-align: top; padding: .48rem .65rem; border-bottom: 1px solid var(--line); }
+  thead { background: #deede6; }
+  tbody th { color: #005b51; }
+  tbody tr:nth-child(even) { background: #f0f5ef; }
+  .context, .recap { font-size: clamp(.97rem, 1.45vw, 1.13rem); line-height: 1.5; margin: .65rem 0; }
+  .context:first-child { margin-top: 0; }
+  .recap { padding: .65rem .8rem; background: #e5f1e9; border-radius: .3rem; }
+  .sources { border-top: 1px solid var(--line); padding-top: .65rem; font-size: clamp(.8rem, 1.15vw, .96rem); line-height: 1.55; }
+  .sources p { margin: .15rem 0; }
+  a { color: #005d55; text-underline-offset: .15em; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid #006e85; outline-offset: 3px; }
+  .controls { position: sticky; bottom: 0; padding-bottom: env(safe-area-inset-bottom); background: #143a36; color: #fff; }
+  .controls-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: .6rem; padding-block: .55rem; }
+  button { justify-self: start; min-height: 2.55rem; padding: .4rem .85rem; border: 1px solid #9ebbb0; border-radius: .35rem; color: inherit; background: transparent; font: inherit; font-weight: 650; cursor: pointer; }
+  #next { justify-self: end; }
+  button:hover:not(:disabled) { background: #25574f; }
+  button:focus-visible { outline-color: #fff; }
+  button:disabled { opacity: .55; cursor: default; }
+  #page { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  #slide-04 th:first-child { white-space: nowrap; }
+  @media (min-width: 57rem) and (max-height: 50rem) {
+    .slide { padding: 1.35rem 1.6rem; }
+    h2 { font-size: clamp(2.1rem, 3.3vw, 2.75rem); }
+    .lesson { margin-block: .85rem; }
+    th, td { font-size: 1rem; line-height: 1.4; padding-block: .35rem; }
+    .sources { line-height: 1.4; }
+  }
+  @media (max-width: 56rem) {
+    .lesson { grid-template-columns: minmax(0, 1fr); gap: .9rem; }
+  }
+  @media (max-width: 36rem) {
+    .masthead, main, .controls-inner { width: calc(100% - 1.2rem); }
+    .slide { padding: .9rem; }
+    th, td { padding: .36rem .32rem; }
+    .masthead { font-size: .75rem; }
+    button { padding-inline: .55rem; }
+  }
+</style>
+</head>
+<body>
+  <div class="masthead">
+    <strong>PBM 口腔傷口癒合</strong><span>牙醫學生 · PGY · 初學臨床工作者</span>
+  </div>
+  <main>
+
+    <section class="slide opening" id="slide-01" aria-labelledby="title-01">
+      <header>
+        <p class="topic">PBM 原理與機轉</p>
+        <p class="course" lang="en">Photobiomodulation (PBM) in Oral Wound Healing</p>
+        <h2 id="title-01" tabindex="-1">PBM 的臨床研究問題</h2>
+        <p class="objective"><strong>學習目標</strong>　能說明 photobiomodulation（PBM，光生物調節）是什麼，以及為何要先確定測量項目。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>PBM 研究以光照介入，觀察生物反應。</li><li>讀結果時區分細胞訊號、傷口癒合與疼痛。</li><li>用「研究的是誰、比較什麼、量什麼、何時量」組織問題。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p>01 是機轉敘述性綜述，未直接檢驗人體口腔傷口療效。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/01-mechanisms.md#基礎解說">第 1 章〈基礎解說〉</a>、<a href="../wiki/06-evidence-and-safety.md#基礎解說">第 6 章〈基礎解說〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/01-hamblin-2018.md#k-來源定位驗證">01 K1、K3</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-02" aria-labelledby="title-02">
+      <header>
+        <p class="topic">PBM 原理與機轉</p>
+
+        <h2 id="title-02" tabindex="-1">粒線體與雙相劑量反應</h2>
+        <p class="objective"><strong>學習目標</strong>　能辨識綜述討論的機轉指標，說明細胞劑量反應的外推界線。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>粒線體膜電位（MMP）、三磷酸腺苷（ATP）、活性氧（ROS）是閱讀機轉的三個切入點。</li><li>正常與受壓細胞可能有不同反應。</li><li>綜述轉述的小鼠皮質神經元例子中，3 J/cm² 時 MMP 與鈣反應最大。</li><li>先說明細胞模型與所測指標，再找人體臨床終點。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>PASS_WITH_LIMITS</code>。被引實驗未獨立核驗。統一臨床療程 <code>Not applicable</code>，完整效應量、CI、p 值及部分照射欄位 <code>Not reported</code>。3 J/cm² 只屬該細胞例。保留首刊、PMC final-form、正式期次的書目差異，原文再散布授權未確認。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/01-mechanisms.md#基礎解說">第 1 章〈基礎解說〉</a>、<a href="../wiki/01-mechanisms.md#研究案例如何讀一張細胞劑量圖">〈如何讀一張細胞劑量圖〉</a>、<a href="../wiki/01-mechanisms.md#證據限制">〈證據限制〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/01-hamblin-2018.md#k-來源定位驗證">01 K1–K3</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-03" aria-labelledby="title-03">
+      <header>
+        <p class="topic">參數與劑量</p>
+
+        <h2 id="title-03" tabindex="-1">看懂照射參數與單位</h2>
+        <p class="objective"><strong>學習目標</strong>　能從參數表分辨功率、時間、能量與能量密度，指出分母代表的面積。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>波長用 nm，功率用 mW 或 W，irradiance 用 mW/cm² 或 W/cm²。</li><li>固定功率時以 W × 秒檢算能量（J）。</li><li>在均勻照射的示例中，J ÷ 面積得平均 fluence（J/cm²）。</li><li>Wiki 假設例為 100 mW × 20 秒＝2 J，分布於 2 cm² 或 4 cm² 時分別為 1 或 0.5 J/cm²（先將 100 mW 換為 0.100 W）。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p>算例的均勻光束與固定功率是教學假設。光斑、傷口與掃描面積分開標示，禁止拼成臨床劑量。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/02-dosimetry.md#基礎解說">第 2 章〈基礎解說〉</a>、<a href="../wiki/02-dosimetry.md#計算示例相同能量可以分布在不同面積">〈相同能量可以分布在不同面積〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K2</a>、<a href="../cards/08-da-silva-azevedo-2026.md#k-來源定位驗證">08 K2</a> 用於比較研究如何定義照射面積，算例直接取自 Wiki。</p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-04" aria-labelledby="title-04">
+      <header>
+        <p class="topic">參數與劑量</p>
+
+        <h2 id="title-04" tabindex="-1">研究劑量如何檢算</h2>
+        <p class="objective"><strong>學習目標</strong>　能並列原報告值、自行檢算及欄位缺漏。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><table><thead><tr><th scope="col">卡片</th><th scope="col">原始研究報告與缺漏</th><th scope="col">Wiki 檢算／待核</th></tr></thead><tbody><tr><th scope="row">02</th><td>0.21 W、0.075 W/cm²、30 秒、6.3 J、5 J/cm²，光斑 2.8 cm² 與傷口 1.26 cm² 分列。</td><td>以 0.075 × 30 得 2.25 J/cm²，總劑量與累計範圍仍有歧義。</td></tr><tr><th scope="row">03</th><td>50 mW 被稱為 average power density，實測 irradiance <code>Not reported</code>。Methods 記 1.23 min／點、11 J／點、66 J／牙，摘要記 11 J/cm²。</td><td>檢算得 3.69 J。</td></tr><tr><th scope="row">08</th><td>掃描面積 2.04 cm² 為幾何估計，irradiance <code>Not reported</code>、離散點數 <code>Not applicable</code>。</td><td>—</td></tr><tr><th scope="row">09／05</th><td>09 報告 12 J，四次累計能量及離散點數 <code>Not reported</code>。05 無可重建的逐篇劑量表，統一療程 <code>Not applicable</code>。</td><td>—</td></tr></tbody></table></div>
+        <aside class="evidence"><h3>證據警示</h3><p>02／03 劑量 <code>CONFLICT</code>，02、03、05、08 為 <code>NEEDS_HUMAN_REVIEW</code>。保留原值與單位，檢算不回填。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/02-dosimetry.md#研究案例先保留原值再核對單位">第 2 章〈先保留原值，再核對單位〉</a>、<a href="../wiki/02-dosimetry.md#證據限制">〈證據限制〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K2</a>、<a href="../cards/03-isolan-2021.md#k-來源定位驗證">03 K2</a>、<a href="../cards/05-giansiracusa-2024.md#k-來源定位驗證">05 K2</a>、<a href="../cards/08-da-silva-azevedo-2026.md#k-來源定位驗證">08 K2</a>、<a href="../cards/09-yakout-2023.md#k-來源定位驗證">09 K2</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-05" aria-labelledby="title-05">
+      <header>
+        <p class="topic">口腔二期傷口</p>
+
+        <h2 id="title-05" tabindex="-1">二期傷口的量測</h2>
+        <p class="objective"><strong>學習目標</strong>　能分辨開放傷面常見的面積、上皮化與臨床評分。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>二期傷口的 Wiki 例子包括游離牙齦移植（FGG）腭側供區和牙齦切除。</li><li>RWA（remaining wound area）以 mm² 記錄剩餘傷口面積。</li><li>上皮化是另一項測量，Landry 是臨床癒合評分。</li><li>比較前先寫清傷口、終點、比較組與時間。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p>RWA 與 Landry 各自判讀。09 缺可採的連續面積療效資料，主要／次要終點預排序 <code>Not reported</code>。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/03-secondary-healing.md#基礎解說">第 3 章〈基礎解說〉</a>、<a href="../wiki/03-secondary-healing.md#重點整理">〈重點整理〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K1、K3</a>、<a href="../cards/09-yakout-2023.md#k-來源定位驗證">09 K1、K3</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-06" aria-labelledby="title-06">
+      <header>
+        <p class="topic">口腔二期傷口</p>
+
+        <h2 id="title-06" tabindex="-1">腭側供區：早期訊號與出血疑點</h2>
+        <p class="objective"><strong>學習目標</strong>　能用時點描述 02 的結果，並判斷哪些數字可轉述。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>配對 split-mouth 試驗比較 PBM 與 sham，16 人納入、14 人完成。</li><li>第 7、14 日 RWA 較小，第 21、28 日無顯著差異。</li><li>第 7 日未上皮化計數有差異，第 14 日無顯著差異。疼痛未見顯著組間差異。</li><li>RWA 正文漏第 21 日且另列日 60。術日出血欄為 10、未出血 14，與 14 名完成者不符。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>NEEDS_HUMAN_REVIEW</code>。劑量與出血計數 <code>CONFLICT</code>，只轉述作者的出血方向與 p＝0.046，不估風險率。小樣本、失訪、NSAID 共介入限制外推。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/03-secondary-healing.md#研究案例一fgg-腭側供區">第 3 章〈FGG 腭側供區〉</a>、<a href="../wiki/03-secondary-healing.md#證據限制">〈證據限制〉</a>、<a href="../wiki/06-evidence-and-safety.md#研究案例出血訊號可以說到哪裡">第 6 章〈出血訊號〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K1–K5</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-07" aria-labelledby="title-07">
+      <header>
+        <p class="topic">口腔翻瓣傷口</p>
+
+        <h2 id="title-07" tabindex="-1">翻瓣傷口：一期癒合與皮瓣存活</h2>
+        <p class="objective"><strong>學習目標</strong>　能區分一般口腔翻瓣一期癒合及缺血條件下的皮瓣存活率。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>08 研究美觀牙冠增長術後傷口，手術包含翻瓣與骨切除。</li><li>Modified Landry 評估局部傷口癒合。</li><li>缺血皮瓣存活率需要相應的存活終點，目前核准 Wiki 的證據範圍缺乏直接資料。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p>08 是 <code>NEEDS_HUMAN_REVIEW</code>。一期癒合資料不足以填補缺血皮瓣存活率的缺口。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/04-flap-healing.md#基礎解說">第 4 章〈基礎解說〉</a>、<a href="../wiki/04-flap-healing.md#重點整理">〈重點整理〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/08-da-silva-azevedo-2026.md#k-來源定位驗證">08 K1、K3</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-08" aria-labelledby="title-08">
+      <header>
+        <p class="topic">口腔翻瓣傷口</p>
+
+        <h2 id="title-08" tabindex="-1">翻瓣試驗：同一人的兩個半弓</h2>
+        <p class="objective"><strong>學習目標</strong>　能區分半弓配對與術前術後比較，正確描述無顯著差異。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>27 人完成、54 半弓，同一人有 PBM 側與 sham 側。</li><li>所測時點癒合與疼痛無顯著組間差異，等效仍未確立。</li><li>OHIP-14 與滿意度的 Table 3 是術前術後比較，不能將變化歸因 PBM。</li><li>登錄時序與 Mann–Whitney 是否處理配對仍待核。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>NEEDS_HUMAN_REVIEW</code>。Results 的生活品質歸因與 Table 3／Discussion 比較方式 <code>CONFLICT</code>。收案 2022-11-25 至 2024-05-13 與聲稱前瞻登錄日 2024-07-29 的時序 <code>CONFLICT</code>，登錄網站尚未另核。小樣本、失訪、半弓間污染及配對方法限制外推。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/04-flap-healing.md#研究案例同一患者的兩個半弓">第 4 章〈同一患者的兩個半弓〉</a>、<a href="../wiki/04-flap-healing.md#證據限制">〈證據限制〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/08-da-silva-azevedo-2026.md#k-來源定位驗證">08 K1、K3–K5</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-09" aria-labelledby="title-09">
+      <header>
+        <p class="topic">拔牙後疼痛</p>
+
+        <h2 id="title-09" tabindex="-1">第三大臼齒拔除：短期 VAS</h2>
+        <p class="objective"><strong>學習目標</strong>　能把術後疼痛的結論限定在實際比較、時間與分析單位內。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>03 分派 44 人共 101 顆牙，PBM＋拔牙 51 顆，單做拔牙 50 顆。</li><li>無 sham，評估者盲化，兩組均用單次 dipyrone。</li><li>6、24、48 小時的疼痛視覺類比量表（VAS）平均值在 PBM 組較低。</li><li>研究未測傷口面積，一人可貢獻多顆牙。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>NEEDS_HUMAN_REVIEW</code>，保留劑量 <code>CONFLICT</code>（第 04 張）、群聚調整與等效界值未確認、患者未盲及自報用藥等限制。預定次要終點 <code>Not reported</code>。疼痛差異無法推為癒合改善。PMC 的 CC Attribution 版本仍未明，見 <a href="../cards/03-isolan-2021.md">卡片書目</a>及 Wiki 來源追溯。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/05-extraction-and-adjuncts.md#基礎解說">第 5 章〈基礎解說〉</a>、<a href="../wiki/05-extraction-and-adjuncts.md#研究案例第三大臼齒短期疼痛">〈第三大臼齒短期疼痛〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/03-isolan-2021.md#k-來源定位驗證">03 K1–K4</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-10" aria-labelledby="title-10">
+      <header>
+        <p class="topic">合併治療</p>
+
+        <h2 id="title-10" tabindex="-1">合併治療：HA 與 guard 同時加入</h2>
+        <p class="objective"><strong>學習目標</strong>　能描述 09 真正比較的介入及哪些效果不能分離。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>牙齦切除試驗有 26 人，各組 13 人。</li><li>兩組均用 PBM，試驗組加 2% 透明質酸（HA）及 guard。</li><li>第 7、14、21 日 Landry 較高，第 3 日未見顯著差異。</li><li>疼痛未見顯著組間差異。比較限於同時加入 HA 與 guard。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>PASS_WITH_LIMITS</code>。回溯登錄、小樣本、患者與操作者未盲、無組織學。無法隔離 HA、guard 或 PBM 各自效應。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/05-extraction-and-adjuncts.md#研究案例牙齦切除後的附加介入">第 5 章〈牙齦切除後的附加介入〉</a>、<a href="../wiki/06-evidence-and-safety.md#基礎解說">第 6 章〈基礎解說〉的比較設計表</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/09-yakout-2023.md#k-來源定位驗證">09 K1、K3–K4</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-11" aria-labelledby="title-11">
+      <header>
+        <p class="topic">證據判讀</p>
+
+        <h2 id="title-11" tabindex="-1">系統性回顧：VAS 效應量與 AO 分母</h2>
+        <p class="objective"><strong>學習目標</strong>　能解釋 05 為何無法從顯示的數字得出可採用的合併療效。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><p class="context">Giansiracusa 2024 回顧納入 3 研究、124 人，追蹤 7–90 日，終點資料的覆蓋不同。</p><table><thead><tr><th scope="col">終點</th><th scope="col">原報</th><th scope="col">判讀限制</th></tr></thead><tbody><tr><th scope="row">VAS</th><td>CI 98–99%</td><td>缺可讀群間效應量，不能讀為改善幅度。</td></tr><tr><th scope="row">AO（齒槽骨炎）</th><td>35／160，另列 PBM 組 0.52%</td><td>分母與對照率不清。</td></tr></tbody></table><p class="context">需回到可辨識的效應量、不確定性、事件數及各組分母。</p></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>CONFLICT</code>／<code>NEEDS_HUMAN_REVIEW</code>。保持原值與不清楚的分母，勿產生替代效應數字。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/05-extraction-and-adjuncts.md#證據限制如何讀-05-的整合結果">第 5 章〈如何讀 05 的整合結果〉</a>、<a href="../wiki/05-extraction-and-adjuncts.md#為什麼不能直接採用合併療效">〈為什麼不能直接採用合併療效〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/05-giansiracusa-2024.md#k-來源定位驗證">05 K1–K4</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-12" aria-labelledby="title-12">
+      <header>
+        <p class="topic">證據判讀</p>
+
+        <h2 id="title-12" tabindex="-1">系統性回顧：異質性與骨修復矛盾</h2>
+        <p class="objective"><strong>學習目標</strong>　能說明異質性編碼、表文不一致與方法疑點如何限制判讀。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><table><thead><tr><th scope="col">核對項目</th><th scope="col">原報與判讀限制</th></tr></thead><tbody><tr><th scope="row">異質性</th><td>Q＝0／I²＝0% 出現在 YES／NO 編碼的敘述，無法確認群間效果一致。</td></tr><tr><th scope="row">骨修復</th><td>骨資料僅一項研究，Table 4 的 YES 與正文無顯著組間差異並列。</td></tr><tr><th scope="row">選文</th><td>原文同稱無日期限制與自 2015 年起，三項原始試驗未獨立重審。</td></tr><tr><th scope="row">偏差與劑量</th><td>NOS 用於 RCT 與偏差評估報告不清，逐篇劑量未列成可重建的表。</td></tr></tbody></table></div>
+        <aside class="evidence"><h3>證據警示</h3><p><code>CONFLICT</code>／<code>NEEDS_HUMAN_REVIEW</code>。個別病人完整納排 <code>Not reported</code>、統一介入 <code>Not applicable</code>。不採為合併療效，不推論骨修復有效或抗生素需求降低。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/05-extraction-and-adjuncts.md#證據限制如何讀-05-的整合結果">第 5 章〈如何讀 05 的整合結果〉</a>、<a href="../wiki/05-extraction-and-adjuncts.md#為什麼不能直接採用合併療效">〈為什麼不能直接採用合併療效〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/05-giansiracusa-2024.md#k-來源定位驗證">05 K1–K4</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-13" aria-labelledby="title-13">
+      <header>
+        <p class="topic">證據判讀</p>
+
+        <h2 id="title-13" tabindex="-1">判讀練習：終點、比較與分析單位</h2>
+        <p class="objective"><strong>學習目標</strong>　能找出容易誤讀的四種比較，回到適當的來源。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>02 配對供區的早期 RWA，限於該傷口與時點。</li><li>03 多牙可能群聚，短期 VAS 只回答疼痛。</li><li>08 半弓有配對結構，無顯著差異不足以確立等效。</li><li>09 兩組共同 PBM，結果回答加入 HA 與 guard 的組合比較。</li></ul></div>
+        <aside class="evidence"><h3>證據警示</h3><p>02、03、08 保留 <code>NEEDS_HUMAN_REVIEW</code>，09 保留 <code>PASS_WITH_LIMITS</code>。不混合不同終點，不用未達顯著宣稱等效。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/03-secondary-healing.md#重點整理">第 3 章〈重點整理〉</a>、<a href="../wiki/05-extraction-and-adjuncts.md#重點整理">第 5 章〈重點整理〉</a>、<a href="../wiki/06-evidence-and-safety.md#基礎解說">第 6 章〈基礎解說〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K1、K3–K5</a>、<a href="../cards/03-isolan-2021.md#k-來源定位驗證">03 K1、K3–K4</a>、<a href="../cards/08-da-silva-azevedo-2026.md#k-來源定位驗證">08 K1、K3–K5</a>、<a href="../cards/09-yakout-2023.md#k-來源定位驗證">09 K1、K3–K4</a></p>
+      </footer>
+    </section>
+    <section class="slide" id="slide-14" aria-labelledby="title-14">
+      <header>
+        <p class="topic">臨床應用界線</p>
+
+        <h2 id="title-14" tabindex="-1">臨床界線：安全訊號與查核</h2>
+        <p class="objective"><strong>學習目標</strong>　能轉述有疑點的安全訊號、保留限制並完成來源追溯。</p>
+      </header>
+      <div class="lesson">
+        <div class="material"><ul class="points"><li>02 術日出血可轉述作者報告方向與 p 值，計數仍待核。</li><li>以傷口、族群、比較、分析單位、終點及時間界定每項主張。</li><li>查 Wiki 段落、Card K 的原文定位，以及 A 節的 DOI、版本與授權。</li><li>綜合本批研究無法訂出通用處方、禁忌清單或安全劑量上限。</li></ul><p class="recap"><strong>學習總結</strong>　先辨識研究終點與比較組，再核對數字、來源和警示，最後界定可以外推的範圍。</p></div>
+        <aside class="evidence"><h3>證據警示</h3><p>出血計數 <code>CONFLICT</code>／<code>NEEDS_HUMAN_REVIEW</code>，勿推算絕對或相對風險。保留 <code>Not reported</code> 與 <code>Not applicable</code>，不得拼出臨床 protocol。</p></aside>
+      </div>
+      <footer class="sources">
+        <p><strong>Wiki</strong>　<a href="../wiki/06-evidence-and-safety.md#研究案例出血訊號可以說到哪裡">第 6 章〈出血訊號〉</a>、<a href="../wiki/06-evidence-and-safety.md#證據限制">〈證據限制〉</a>、<a href="../wiki/README.md#如何追溯主張">Wiki 首頁〈如何追溯主張〉</a></p>
+        <p><strong>Evidence Card</strong>　<a href="../cards/02-morshedzadeh-2022.md#k-來源定位驗證">02 K1、K4–K5</a></p>
+      </footer>
+    </section>
+  </main>
+  <nav class="controls" aria-label="投影片導覽" hidden>
+    <div class="controls-inner">
+      <button type="button" id="previous" aria-label="上一張">← 上一張</button>
+      <output id="page" aria-live="polite" aria-atomic="true"></output>
+      <button type="button" id="next" aria-label="下一張">下一張 →</button>
+    </div>
+  </nav>
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const controls = document.querySelector(".controls");
+  const previous = document.querySelector("#previous");
+  const next = document.querySelector("#next");
+  const page = document.querySelector("#page");
+  let index = 0;
+
+  function showSlide(target, announce = true) {
+    if (target < 0 || target >= slides.length) return;
+    index = target;
+    slides.forEach((slide, i) => { slide.hidden = i !== index; });
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+    page.textContent = `第 ${index + 1} / ${slides.length} 張`;
+    if (announce) {
+      window.scrollTo(0, 0);
+      slides[index].querySelector("h2").focus({ preventScroll: true });
+    }
+  }
+
+  previous.addEventListener("click", () => showSlide(index - 1));
+  next.addEventListener("click", () => showSlide(index + 1));
+  document.addEventListener("keydown", event => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.defaultPrevented) return;
+    if (event.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      event.preventDefault();
+      showSlide(index + (event.key === "ArrowRight" ? 1 : -1));
+    }
+  });
+
+  showSlide(0, false);
+  controls.hidden = false;
+</script>
+</body>
+</html>
