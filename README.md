@@ -1,11 +1,13 @@
 # pbm-oral-wound-wiki
 
-PBM口腔傷口證據專案。**任務 04：大綱待人工審核**。任務 03 有條件通過，卡片既有 QA 標記維持。
+PBM口腔傷口證據專案。**任務 05：Wiki 正文初稿待人工審核**。任務 04 大綱已由 PR #1 合併，卡片既有 QA 標記維持。
 
 使用者核准的01、02、03、05、08、09已實際取得合法全文並解析為六張Evidence Cards。全文匯入6／6；卡片QA為2張PASS_WITH_LIMITS、4張NEEDS_HUMAN_REVIEW。取得全文不等於原文數字正確或可臨床採用。
 
 - [來源與當前狀態](sources.md)
-- [任務 04 六章大綱](wiki/outline.md)
+- [Wiki 首頁與六章導覽](wiki/README.md)
+- [任務 05 人工審核清單](reviews/task05-wiki-review.md)
+- [任務 04 核准大綱](wiki/outline.md)
 - [任務 04 人工審核清單](reviews/task04-outline-review.md)
 - [各階段報告](report.md)
 - [實際Loop／節點時間紀錄](wiki/log.md)
@@ -23,4 +25,4 @@ PBM口腔傷口證據專案。**任務 04：大綱待人工審核**。任務 03 
 
 Repository維持Private。01未確認原文再散布授權，03 CC版本未明；本Repo僅含自撰卡片、來源連結、查核與紀錄，原始HTML／圖／PDF不提交。literature/、metadata/仍無原始全文或向量資料。
 
-任務 04 交付停在大綱與審核清單，等待人工核准。正式 Wiki 正文、HTML 簡報及 GitHub Pages 仍在本階段授權範圍外。
+任務 05 交付停在六章 Wiki 正文初稿，等待人工核准。HTML 簡報、GitHub Pages 與公開發布仍在本階段授權範圍外。
