@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PBM 口腔傷口癒合｜互動式教學簡報</title>
+<style>
+  :root {color-scheme:light; --ink:#192f33; --teal:#075e54; --muted:#496264; --line:#cedbd4; --paper:#fffef9; --blue:#235b87; font-family:system-ui,"Noto Sans CJK TC","Microsoft JhengHei",sans-serif; background:#eaf0ec;color:var(--ink)}
+  * {box-sizing:border-box}
+  body {margin:0; min-height:100vh; display:flex; flex-direction:column; line-height:1.55}
+  [hidden] {display:none!important}
+  .wrap {width:min(90rem,calc(100% - 2.5rem)); margin-inline:auto; min-width:0}
+  .masthead {background:#123b3c;color:#effaf2}
+  .masthead .wrap,.nav-inner {display:flex;align-items:center;justify-content:space-between;gap:.55rem 1rem;flex-wrap:wrap;padding-block:.55rem}
+  .masthead a {color:inherit}
+  .masthead strong {display:block}
+  .masthead small {color:#cde5d9}
+  .mode {display:flex;gap:.3rem;flex-wrap:wrap}
+  button {font:inherit;font-weight:700;cursor:pointer;border-radius:.35rem;border:1px solid #94b7aa;background:transparent;color:inherit;padding:.35rem .65rem}
+  button:hover:not(:disabled) {background:#d7ede2;color:#123b3c}
+  button[aria-pressed="true"] {background:#d7ede2;color:#123b3c}
+  button:disabled {opacity:.5;cursor:default}
+  :focus-visible {outline:3px solid #167ba4;outline-offset:3px}
+  .masthead :focus-visible,.nav :focus-visible {outline-color:#fff}
+  main {flex:1;padding-block:1rem}
+  .slide {border:1px solid var(--line);border-top:.35rem solid var(--teal);background:var(--paper);padding:clamp(.9rem,2.7vw,2rem);border-radius:.55rem;box-shadow:0 .5rem 1.5rem #143b3314}
+  h1,h2,h3,p,figure {margin:0}
+  .topic {color:var(--teal);font-weight:750;font-size:.84rem}
+  h2 {font-size:clamp(1.65rem,3.8vw,3.25rem);line-height:1.15;margin:.22rem 0 .9rem;letter-spacing:-.035em}
+  h3 {font-size:1rem;color:var(--teal);margin:0 0 .35rem}
+  .body {display:grid;grid-template-columns:minmax(0,1.37fr) minmax(0,1fr);gap:clamp(.8rem,2.5vw,2rem);align-items:start}
+  .full .body {grid-template-columns:1fr}
+  .plain {font-size:clamp(1.06rem,1.55vw,1.32rem)}
+  .visual {min-width:0;overflow-wrap:anywhere}
+  svg {display:block;width:100%;height:auto;max-height:19rem;background:#edf5ef;border:1px solid var(--line);border-radius:.45rem}
+  svg text {font-family:inherit;fill:#173a39;font-size:22px;font-weight:700}
+  svg .small {font-size:17px}
+  #slide-07 svg .small {paint-order:stroke;stroke:#edf5ef;stroke-width:2.5px;stroke-linejoin:round}
+  figcaption,.subtle {font-size:.9rem;color:var(--muted);margin-top:.25rem}
+  .take {padding:.55rem .75rem;margin-top:.75rem;border-inline-start:.24rem solid #208573;background:#e6f3ea;font-size:clamp(1rem,1.25vw,1.15rem)}
+  .warning {padding:.48rem .7rem;margin-top:.65rem;border-inline-start:.24rem solid #ab6a21;background:#fff1da;color:#503817;font-size:.94rem}
+  .research {margin-top:.7rem;padding:.65rem .8rem;background:#edf2f0;border-radius:.3rem;overflow-wrap:anywhere}
+  .sources {margin-top:.75rem;padding-top:.55rem;border-top:1px solid var(--line);font-size:.88rem;overflow-wrap:anywhere}
+  a {color:#065e55;text-underline-offset:.18em}
+  .nav {position:sticky;bottom:0;background:#123b3c;color:#fff;padding-bottom:env(safe-area-inset-bottom)}
+  .nav-inner {display:grid;grid-template-columns:1fr auto 1fr}
+  #prev {justify-self:start} #next {justify-self:end}
+  #page {font-variant-numeric:tabular-nums;white-space:nowrap}
+  table {width:100%;border-collapse:collapse;font-size:clamp(.88rem,1.2vw,1.02rem);line-height:1.4;overflow-wrap:anywhere}
+  th,td {padding:.38rem .5rem;border-bottom:1px solid var(--line);text-align:start;vertical-align:top}
+  thead {background:#dcece4}
+  tbody th {color:var(--teal)}
+  tr:nth-child(even) {background:#f0f5ef}
+  caption {font-weight:750;text-align:start;margin-bottom:.25rem}
+  details {margin-top:.35rem}
+  summary {cursor:pointer;color:var(--teal);font-weight:700}
+  .inputs,.results {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem;margin:.45rem 0}
+  label {overflow-wrap:anywhere}
+  input[type=number] {width:100%;border:1px solid #60847b;border-radius:.25rem;padding:.3rem;background:#fff;color:var(--ink);font:inherit}
+  .results div {padding:.28rem .4rem;background:#e5f1e9;border-radius:.25rem}
+  .results output {display:block;font-weight:750}
+  #calc-status,#quiz-feedback {margin:.35rem 0;font-weight:650}
+  fieldset {border:1px solid var(--line);border-radius:.3rem;padding:.5rem .7rem;margin:0 0 .45rem}
+  fieldset label {display:flex;gap:.55rem;align-items:baseline;padding:.32rem 0}
+  fieldset input {accent-color:var(--teal)}
+  .visual button {color:var(--teal)}
+  .legend {display:flex;flex-wrap:wrap;gap:.3rem .9rem;font-size:.9rem}
+  .legend b:first-child {color:var(--teal)} .legend b:last-child {color:var(--blue)}
+  @media (min-width:56rem) and (max-height:49rem) {
+    .slide {padding:1rem 1.35rem} h2 {font-size:2.45rem;margin-bottom:.55rem}
+    svg {max-height:15rem} .sources,.take,.warning {margin-top:.45rem}
+    #slide-04 svg {max-height:10rem}
+    #summary th,#summary td {padding-block:.27rem}
+  }
+  @media (max-width:55rem) {.body {grid-template-columns:1fr}.wrap {width:calc(100% - 1.1rem)}}
+  @media (max-width:32rem) {
+    .inputs,.results {grid-template-columns:1fr}
+    #summary thead {position:absolute;inline-size:1px;block-size:1px;overflow:hidden;clip-path:inset(50%)}
+    #summary tbody tr {display:grid;padding-block:.3rem;border-bottom:1px solid var(--line)}
+    #summary tbody th,#summary tbody td {border:0}
+  }
+</style>
+</head>
+<body>
+<header class="masthead"><div class="wrap">
+  <div><strong>PBM 口腔傷口癒合</strong><small lang="en">Photobiomodulation in Oral Wound Healing</small></div>
+  <div class="mode" role="group" aria-label="閱讀模式">
+    <button id="basic" type="button" aria-pressed="true">基礎教學</button>
+    <button id="advanced" type="button" aria-pressed="false">進階研究</button>
+  </div>
+  <a href="../index.html">返回專案首頁</a>
+</div></header>
+<main class="wrap" id="deck">
+<section class="slide" id="slide-01" aria-labelledby="title-01">
+  <p class="topic">原理與機轉</p>
+  <h2 id="title-01" tabindex="-1">PBM 是什麼？牙科研究為什麼會用到它？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-1-title svg-1-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-1-title">用光研究口腔反應</title><desc id="svg-1-desc">光照口腔組織，圖中分兩路查疼痛或癒合。</desc><path d="M63 60L221 104 221 146 63 188Z" fill="#f6d48e"/><rect x="25" y="77" width="77" height="95" rx="20" fill="#275b58"/><path d="M210 144Q247 88 317 115L344 172H206Z" fill="#eaa9a5"/><path d="M228 106Q246 80 269 96L266 151Q248 181 234 151Z" fill="#fffdf2" stroke="#7a7d70" stroke-width="2"/><path d="M343 136Q397 129 431 64M343 136Q397 141 431 203" fill="none" stroke="#2c7168" stroke-width="4"/><text x="66" y="221" text-anchor="middle">光照</text><text x="269" y="219" text-anchor="middle">口腔組織</text><text x="497" y="68" text-anchor="middle">有多痛？</text><text x="497" y="208" text-anchor="middle">傷口怎麼癒合？</text></svg><figcaption>教學示意｜兩條線表示不同研究提問。</figcaption></figure></div>
+    <div><p class="plain">光生物調節（Photobiomodulation, PBM）是用光照到組織，看看細胞訊號或組織反應會不會改變。牙科研究會問它能否輔助術後照護，例如影響傷口癒合或讓拔牙後比較不痛。這兩項可能用途各要有研究支持，「有多痛」與「傷口剩多少」也要分開量。</p>
+      <p class="take"><strong>Take-home</strong>　PBM 的臨床用途要看情境與實際量測。先分清這篇在問疼痛還是癒合。</p>
+      <p class="warning"><strong>證據警示</strong>　目前用途依研究問題與族群而異，機轉綜述無法單獨證實人體療效。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>對照敘述性機轉綜述與人體研究，保留 Card 01 的臨床外推界線。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/03-secondary-healing.md">Wiki 第 3 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md">Wiki 第 5 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">Card 02 K1、K3</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/03-isolan-2021.md">Card 03 K1、K3</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/01-mechanisms.md#%E5%9F%BA%E7%A4%8E%E8%A7%A3%E8%AA%AA">Wiki 第 1 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/01-hamblin-2018.md#k-%E4%BE%86%E6%BA%90%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89">Card 01 K1、K3</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/">Hamblin 2018</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/">Isolan 2021</a></footer>
+</section>
+<section class="slide" id="slide-02" aria-labelledby="title-02">
+  <p class="topic">原理與機轉</p>
+  <h2 id="title-02" tabindex="-1">光照之後，細胞觀察了什麼？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-2-title svg-2-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-2-title">光束、細胞與粒線體</title><desc id="svg-2-desc">光束指向細胞，細胞內的雙膜粒線體以虛線連到 ATP、ROS、MMP 觀察指標。</desc><path d="M20 96L174 114V149L20 169Z" fill="#f5d38a"/><ellipse cx="272" cy="132" rx="143" ry="100" fill="#d9ebe5" stroke="#328172" stroke-width="4"/><ellipse cx="194" cy="153" rx="28" ry="33" fill="#94b9c5"/><path d="M230 110Q259 63 326 92Q371 119 345 151Q317 186 261 163Q218 146 230 110Z" fill="#eab69c" stroke="#984f42" stroke-width="4"/><path d="M242 115Q256 90 278 98T326 107Q349 122 331 144T274 151Q243 145 242 115Z" fill="none" stroke="#984f42" stroke-width="3"/><path d="M259 106l12 36 11-37 13 38 12-35 11 30" fill="none" stroke="#984f42" stroke-width="3"/><path d="M354 116L476 57M355 126L476 127M352 142L476 199" stroke="#327467" stroke-width="3" stroke-dasharray="7 6"/><text x="64" y="81" text-anchor="middle">光照</text><text x="274" y="241" text-anchor="middle">細胞</text><text x="291" y="198" text-anchor="middle" class="small">粒線體</text><text x="518" y="60" text-anchor="middle">ATP</text><text x="518" y="133" text-anchor="middle">ROS</text><text x="518" y="207" text-anchor="middle">MMP</text></svg><figcaption>教學示意｜虛線表示可能關聯。細胞機轉假說須另由人體研究檢驗臨床結果。</figcaption></figure></div>
+    <div><p class="plain">把粒線體想成細胞的「發電廠」。研究者觀察粒線體膜電位（mitochondrial membrane potential, MMP）、參與能量傳遞的三磷酸腺苷（adenosine triphosphate, ATP），以及可能參與訊號的活性氧（reactive oxygen species, ROS）。</p>
+      <p class="take"><strong>Take-home</strong>　細胞指標可幫忙理解可能的機轉，人體傷口的結果須另有量測。</p>
+      <p class="warning"><strong>證據警示</strong>　細胞機轉為假說與觀察。Card 01：PASS_WITH_LIMITS。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>不同細胞狀態可能有不同反應，01 屬敘述性綜述，保留 <code>PASS_WITH_LIMITS</code>。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/01-mechanisms.md#%E5%9F%BA%E7%A4%8E%E8%A7%A3%E8%AA%AA">Wiki 第 1 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/01-hamblin-2018.md#k-%E4%BE%86%E6%BA%90%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89">Card 01 K1、K3</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/">Hamblin 2018</a></footer>
+</section>
+<section class="slide" id="slide-03" aria-labelledby="title-03">
+  <p class="topic">原理與機轉</p>
+  <h2 id="title-03" tabindex="-1">更多光能一定有更大的反應嗎？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-3-title svg-3-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-3-title">雙相劑量反應概念圖</title><desc id="svg-3-desc">相對生物反應隨劑量先上升，較高劑量時下降，無數據刻度。</desc><path d="M88 37V213H548M82 49L88 36l6 13M535 207l13 6-13 6" fill="none" stroke="#496264" stroke-width="3"/><path d="M99 196C171 185 190 68 280 65S395 155 529 185" fill="none" stroke="#08786a" stroke-width="7"/><text x="128" y="31" text-anchor="middle" class="small">相對生物反應</text><text x="321" y="247" text-anchor="middle">照射劑量：低 → 高</text></svg><figcaption>教學示意，非原始研究數據。曲線無數據點、刻度或人體最佳劑量。</figcaption></figure></div>
+    <div><p class="plain">雙相劑量反應（biphasic dose response）在 Wiki 的細胞例中表現為反應先變大，較高劑量時又變小。</p>
+      <p class="take"><strong>Take-home</strong>　反應較大的細胞劑量不能直接當作人體處方。</p>
+      <p class="warning"><strong>證據警示</strong>　細胞反應曲線是教學示意。Card 01：PASS_WITH_LIMITS；人體最佳劑量仍不明。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留 3 J/cm² 僅屬被引小鼠細胞例，原始實驗未獨立核驗、統計及部分照射欄位 <code>Not reported</code>，臨床療程 <code>Not applicable</code>，原文版本與權利警示照錄。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/01-mechanisms.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E5%A6%82%E4%BD%95%E8%AE%80%E4%B8%80%E5%BC%B5%E7%B4%B0%E8%83%9E%E5%8A%91%E9%87%8F%E5%9C%96">Wiki 第 1 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/01-hamblin-2018.md#k-%E4%BE%86%E6%BA%90%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89">Card 01 K2</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/">Hamblin 2018</a></footer>
+</section>
+<section class="slide" id="slide-04" aria-labelledby="title-04">
+  <p class="topic">參數與劑量</p>
+  <h2 id="title-04" tabindex="-1">同樣的能量，照在不同面積</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-4-title svg-4-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-4-title">能量分布示意</title><desc id="svg-4-desc">相同能量分到小面積與大面積。</desc><rect x="74" y="64" width="135" height="112" fill="#82c1a9" stroke="#267366" stroke-width="3"/><rect x="299" y="64" width="270" height="112" fill="#c7e6d6" stroke="#267366" stroke-width="3"/><path d="M141 40V79M435 40V79" stroke="#ab622d" stroke-width="5"/><text x="141" y="217" text-anchor="middle">同能量・較小面積</text><text x="435" y="217" text-anchor="middle">同能量・較大面積</text></svg><figcaption>教學示意｜固定功率、均勻照射，非臨床處方。</figcaption></figure><form id="calculator" aria-label="教學用劑量計算器">
+<div class="inputs"><label>功率（mW）<input id="power" type="number" min="0" step="any" value="100"></label>
+<label>時間（s）<input id="duration" type="number" min="0" step="any" value="20"></label>
+<label>面積（cm²）<input id="area" type="number" min="0" step="any" value="2"></label></div>
+<div class="results" aria-live="polite" aria-atomic="true">
+<div>總能量<output id="energy" for="power duration"></output>J</div>
+<div>功率密度<output id="irradiance" for="power area"></output>W/cm²</div>
+<div>能量密度<output id="fluence" for="power duration area"></output>J/cm²</div></div>
+<p id="calc-status" role="status"></p><button type="reset">重設</button></form></div>
+    <div><p class="plain">功率（power）描述每秒傳遞多少能量，照射時間（exposure time）決定累積多久。能量（energy）用 J；照射面積（irradiated area）越大，同一份能量均分後，每 cm² 分到的能量密度（fluence）越小。</p>
+      <p class="take"><strong>Take-home</strong>　比較能量密度時要先確認分母代表哪一塊面積。</p>
+      <p class="warning"><strong>證據警示</strong>　固定功率、均勻照射並假設功率入射至指定面積。教學換算，非臨床處方。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>補波長（wavelength，光譜位置，nm）及功率密度（irradiance，每單位面積入射功率），用 Wiki 原算式交叉驗算。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/02-dosimetry.md#%E8%A8%88%E7%AE%97%E7%A4%BA%E4%BE%8B%E7%9B%B8%E5%90%8C%E8%83%BD%E9%87%8F%E5%8F%AF%E4%BB%A5%E5%88%86%E5%B8%83%E5%9C%A8%E4%B8%8D%E5%90%8C%E9%9D%A2%E7%A9%8D">Wiki 第 2 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md#k-%E4%BE%86%E6%BA%90%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89">Card 02 K2</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md#k-%E4%BE%86%E6%BA%90%E5%AE%9A%E4%BD%8D%E9%A9%97%E8%AD%89">Card 08 K2</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a></footer>
+</section>
+<section class="slide" id="slide-05" aria-labelledby="title-05">
+  <p class="topic">參數與劑量</p>
+  <h2 id="title-05" tabindex="-1">哪些數字是研究原報，哪些是檢算？</h2>
+  <div class="body">
+    <div class="visual"><table><caption>保留原值，並排檢算</caption><thead><tr><th scope="col">Card</th><th scope="col">原報</th><th scope="col">Wiki 檢算</th></tr></thead><tbody><tr><th scope="row">02</th><td>5 J/cm²</td><td>2.25 J/cm²</td></tr><tr><th scope="row">03</th><td>11 J／點</td><td>3.69 J／點</td></tr></tbody></table></div>
+    <div><p class="plain">遇到原報數字彼此算不攏，先留住原值，再指出哪兩個欄位對不上。</p>
+      <p class="take"><strong>Take-home</strong>　檢算用來發現矛盾，原報數字和缺值照錄。</p>
+      <p class="warning"><strong>證據警示</strong>　02／03 劑量 CONFLICT、NEEDS_HUMAN_REVIEW；檢算值不可回填原報。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留完整 02／03 劑量、面積和累計範圍 <code>CONFLICT</code>。05 劑量缺表、08 掃描估計與 09 累計缺值沿用原表。保留 <code>NEEDS_HUMAN_REVIEW</code>、<code>Not reported</code>、<code>Not applicable</code>。</p><table><caption>劑量與缺值的完整對照</caption><thead><tr><th scope="col">Card</th><th scope="col">研究原報</th><th scope="col">檢算或待核</th></tr></thead><tbody><tr><th scope="row">02</th><td>0.21 W、0.075 W/cm²、30 秒、6.3 J、5 J/cm²；光斑 2.8 cm²，傷口 1.26 cm²。</td><td>0.075 W/cm² × 30 s＝2.25 J/cm²；總量、累計範圍有歧義。</td></tr><tr><th scope="row">03</th><td>50 mW 被稱 average power density，實測 irradiance <code>Not reported</code>。Methods：1.23 min／點、11 J／點、66 J／牙；摘要 11 J/cm²。</td><td>0.050 W × 1.23 min × 60＝3.69 J。原值照錄。</td></tr><tr><th scope="row">08</th><td>掃描面積 2.04 cm² 為幾何估計。</td><td>Irradiance <code>Not reported</code>，離散點數 <code>Not applicable</code>。</td></tr><tr><th scope="row">09</th><td>12 J。</td><td>累計能量、離散點數 <code>Not reported</code>。</td></tr><tr><th scope="row">05</th><td>逐篇劑量無可重建的表。</td><td>統一療程 <code>Not applicable</code>。</td></tr></tbody></table></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/02-dosimetry.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E5%85%88%E4%BF%9D%E7%95%99%E5%8E%9F%E5%80%BC%E5%86%8D%E6%A0%B8%E5%B0%8D%E5%96%AE%E4%BD%8D">Wiki 第 2 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K2</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/03-isolan-2021.md">03 K2</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/05-giansiracusa-2024.md">05 K2</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K2</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/09-yakout-2023.md">09 K2</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/">Isolan 2021</a> · <a href="https://www.mdpi.com/2077-0383/13/18/5402">Giansiracusa 2024</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/">Yakout 2023</a></footer>
+</section>
+<section class="slide" id="slide-06" aria-labelledby="title-06">
+  <p class="topic">口腔傷口</p>
+  <h2 id="title-06" tabindex="-1">開放傷面怎麼看癒合？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-6-title svg-6-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-6-title">上顎牙列、腭側供區與開放傷面</title><desc id="svg-6-desc">牙齒環繞硬腭，紅色長形示意 FGG 供區，右側剖面畫出開放傷面及表層覆蓋。</desc><g transform="translate(4,0)"><path d="M53 218 C31 129 52 20 146 19 C240 20 262 129 239 218 L199 210 C211 158 203 74 146 71 C88 74 81 157 94 210Z" fill="#e6a7a3" stroke="#a16c64" stroke-width="3"/><path d="M96 204 C85 150 90 82 146 74 C201 82 208 150 196 204Z" fill="#f3ccc0"/><ellipse cx="75" cy="108" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="85" cy="77" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="106" cy="54" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="132" cy="41" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="161" cy="41" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="187" cy="54" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="208" cy="77" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="218" cy="108" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="72" cy="141" rx="13" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="220" cy="141" rx="13" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="73" cy="173" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="219" cy="173" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="79" cy="204" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="213" cy="204" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="111" cy="146" rx="12" ry="29" fill="#b6494e" stroke="#733b42" stroke-width="2"/></g><path d="M114 146L302 94M150 116L291 49" stroke="#796259" stroke-width="2"/><path d="M313 171H374Q416 223 458 171H552V237H313Z" fill="#e8aaa6"/><path d="M313 171H374Q416 214 458 171H552" fill="none" stroke="#a7454b" stroke-width="4"/><path d="M389 188Q416 205 444 188" fill="none" stroke="#228074" stroke-width="4" stroke-dasharray="7 5"/><text x="321" y="48" text-anchor="middle" class="small">硬腭</text><text x="374" y="96" text-anchor="middle" class="small">FGG 腭側供區</text><text x="445" y="149" text-anchor="middle" class="small">開放傷面</text><text x="437" y="260" text-anchor="middle" class="small">牙齒、牙齦與上皮覆蓋</text></svg><figcaption>教學示意｜白色橢圓為牙齒，粉色外緣為牙齦，紅色標出供區位置，虛線示意表層覆蓋。</figcaption></figure></div>
+    <div><p class="plain">二期癒合（secondary intention healing）是開放傷面逐步修復。剩餘傷口面積（remaining wound area, RWA）量還有多大，上皮化（epithelialization）看表面是否覆蓋，Landry 癒合指數（Landry healing index）是臨床評分。</p>
+      <p class="take"><strong>Take-home</strong>　傷口面積、覆蓋和臨床評分要各自讀。</p>
+      <p class="warning"><strong>證據警示</strong>　面積、上皮化與臨床評分各自判讀。09 缺可採的連續面積療效資料。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>介紹游離牙齦移植（free gingival graft, FGG）的供區；09 缺可採的連續面積及預排序資料。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/03-secondary-healing.md#%E5%9F%BA%E7%A4%8E%E8%A7%A3%E8%AA%AA">Wiki 第 3 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K1、K3</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/09-yakout-2023.md">09 K1、K3</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/">Yakout 2023</a></footer>
+</section>
+<section class="slide" id="slide-07" aria-labelledby="title-07">
+  <p class="topic">口腔傷口</p>
+  <h2 id="title-07" tabindex="-1">腭側傷口：前兩次追蹤看到什麼？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-7-title svg-7-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-7-title">術後剩餘傷口面積</title><desc id="svg-7-desc">兩組各時點原報均值，單位 RWA（mm²），逐點數值見資料表。</desc><path d="M65 35V213H553" stroke="#657b75" stroke-width="2" fill="none"/><path d="M65 213.0H553" stroke="#c0d4c9"/><text x="43" y="218.0" text-anchor="middle" class="small">0</text><path d="M65 168.5H553" stroke="#c0d4c9"/><text x="43" y="173.5" text-anchor="middle" class="small">30</text><path d="M65 124.0H553" stroke="#c0d4c9"/><text x="43" y="129.0" text-anchor="middle" class="small">60</text><path d="M65 79.5H553" stroke="#c0d4c9"/><text x="43" y="84.5" text-anchor="middle" class="small">90</text><path d="M65 35.0H553" stroke="#c0d4c9"/><text x="43" y="40.0" text-anchor="middle" class="small">120</text><text x="138" y="239" text-anchor="middle" class="small">7 日</text><text x="251" y="239" text-anchor="middle" class="small">14 日</text><text x="364" y="239" text-anchor="middle" class="small">21 日</text><text x="477" y="239" text-anchor="middle" class="small">28 日</text><text x="300" y="263" text-anchor="middle" class="small">術後時間</text><text x="90" y="23" text-anchor="middle" class="small">RWA（mm²）</text><polyline points="138,86.843 251,182.829 364,210.686 477,213.000" fill="none" stroke="#075e54" stroke-width="3"/><circle cx="138" cy="86.843" r="5" fill="#075e54"/><text x="111" y="82.8425" text-anchor="middle" class="small">85.05</text><circle cx="251" cy="182.829" r="5" fill="#075e54"/><text x="224" y="178.829" text-anchor="middle" class="small">20.34</text><circle cx="364" cy="210.686" r="5" fill="#075e54"/><text x="337" y="206.686" text-anchor="middle" class="small">1.56</text><circle cx="477" cy="213.000" r="5" fill="#075e54"/><text x="450" y="209.0" text-anchor="middle" class="small">0</text><polyline points="138,47.252 251,170.829 364,206.355 477,212.867" fill="none" stroke="#235b87" stroke-width="3" stroke-dasharray="8 5"/><rect x="134" y="43.252" width="8" height="8" fill="#235b87"/><text x="168" y="39.252333333333354" text-anchor="middle" class="small">111.74</text><rect x="247" y="166.829" width="8" height="8" fill="#235b87"/><text x="281" y="162.82883333333334" text-anchor="middle" class="small">28.43</text><rect x="360" y="202.355" width="8" height="8" fill="#235b87"/><text x="394" y="198.35466666666667" text-anchor="middle" class="small">4.48</text><rect x="473" y="208.867" width="8" height="8" fill="#235b87"/><text x="507" y="204.8665" text-anchor="middle" class="small">0.09</text></svg><figcaption>剩餘傷口面積（平均值）｜<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Card 02 K3，原文 Table 2</a>。線段只連接有報告的時點。</figcaption></figure><div class="legend" aria-label="圖例"><b>● PBM</b><b>■ 假照射（sham）</b></div><details><summary>查看圖表資料</summary><table id="data-7"><caption>圖表資料：兩組平均值</caption><thead><tr><th scope="col">術後時間</th><th scope="col">PBM</th><th scope="col">假照射（sham）</th></tr></thead><tbody><tr><th scope="row">7 日</th><td>85.05</td><td>111.74</td></tr><tr><th scope="row">14 日</th><td>20.34</td><td>28.43</td></tr><tr><th scope="row">21 日</th><td>1.56</td><td>4.48</td></tr><tr><th scope="row">28 日</th><td>0</td><td>0.09</td></tr></tbody></table></details></div>
+    <div><p class="plain">同一個人的兩側分別照光與假照射（sham），這叫分口比較（split-mouth）。照光側在術後第 7、14 日的剩餘傷口面積較小；第 21、28 日未見顯著差異。</p>
+      <p class="take"><strong>Take-home</strong>　第 7、14 日的結果限於這項供區比較；第 21、28 日未見顯著差異，等效尚未確立。</p>
+      <p class="warning"><strong>證據警示</strong>　02 NEEDS_HUMAN_REVIEW；時程和劑量待核。早期差異限於此供區；後兩時點未見顯著差異。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>列出研究樣本、疼痛和上皮化結果。RWA 正文漏第 21 日及另列第 60 日，保留時程差異。<code>NEEDS_HUMAN_REVIEW</code> 與劑量 <code>CONFLICT</code> 常駐。</p><table><caption>原報 Table 2：平均值 ± 標準差（mm²）</caption><thead><tr><th scope="col">術後日</th><th scope="col">PBM</th><th scope="col">假照射</th><th scope="col">p 值</th></tr></thead><tbody><tr><th scope="row">7</th><td>85.05 ± 27.88</td><td>111.74 ± 27.32</td><td>&lt;0.001</td></tr><tr><th scope="row">14</th><td>20.34 ± 17.55</td><td>28.43 ± 20.85</td><td>0.048</td></tr><tr><th scope="row">21</th><td>1.56 ± 3.76</td><td>4.48 ± 13.10</td><td>0.408</td></tr><tr><th scope="row">28</th><td>0</td><td>0.09 ± 0.33</td><td>0.336</td></tr></tbody></table><p>16 人納入，14 人完成；第 7 日未上皮化計數 10 對 14（p＝0.046），第 14 日及疼痛未見顯著組間差異。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/03-secondary-healing.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E4%B8%80fgg-%E8%85%AD%E5%81%B4%E4%BE%9B%E5%8D%80">Wiki 第 3 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K1–K5</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">原文 Table 2</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a></footer>
+</section>
+<section class="slide" id="slide-08" aria-labelledby="title-08">
+  <p class="topic">口腔傷口</p>
+  <h2 id="title-08" tabindex="-1">出血有警訊，可以報成風險率嗎？</h2>
+  <div class="body">
+    <div class="visual"><table><caption>術日出血原報欄位</caption><thead><tr><th scope="col">欄位</th><th scope="col">原報</th></tr></thead><tbody><tr><th scope="row">PBM 側出血</th><td>10</td></tr><tr><th scope="row">PBM 側未出血</th><td>14</td></tr><tr><th scope="row">完成試驗</th><td>14 名</td></tr></tbody></table></div>
+    <div><p class="plain">術日出血的報告方向可以說明，但兩個計數對不上完成研究的人數，不能用來算百分比。</p>
+      <p class="take"><strong>Take-home</strong>　分母與計數有矛盾時，保留訊號及疑問，先不算風險率。</p>
+      <p class="warning"><strong>證據警示</strong>　02 CONFLICT／NEEDS_HUMAN_REVIEW；保留作者的出血方向，計數待核。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留作者報告方向、p＝0.046、失訪、小樣本與非類固醇抗發炎藥（nonsteroidal anti-inflammatory drugs, NSAIDs）共介入。<code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code> 常駐。</p><p>作者報告雷射側術日出血較多（p＝0.046），Table 5 計數疑點仍在。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/06-evidence-and-safety.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E5%87%BA%E8%A1%80%E8%A8%8A%E8%99%9F%E5%8F%AF%E4%BB%A5%E8%AA%AA%E5%88%B0%E5%93%AA%E8%A3%A1">Wiki 第 6 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K1、K4–K5</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a></footer>
+</section>
+<section class="slide" id="slide-09" aria-labelledby="title-09">
+  <p class="topic">口腔傷口</p>
+  <h2 id="title-09" tabindex="-1">翻瓣傷口癒合與皮瓣存活各看什麼？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-9-title svg-9-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-9-title">翻瓣復位與皮瓣血流概念</title><desc id="svg-9-desc">左側為靠近的傷緣，右側為皮瓣下血流方向。</desc><path d="M20 143Q84 130 143 139L154 158 169 139Q226 129 280 143V214H20Z" fill="#e8aaa6"/><path d="M20 143Q84 130 143 139L154 158 169 139Q226 129 280 143" stroke="#9d4b53" fill="none" stroke-width="4"/><path d="M143 119L167 160M167 119L143 160" stroke="#305d69" stroke-width="3"/><path d="M320 150Q384 84 476 121L580 157V214H320Z" fill="#e8aaa6"/><path d="M329 193Q424 140 527 166m-17-14 18 14-24 5M391 169q31-20 39-42m-12 8 12-8 1 16" fill="none" stroke="#a12c3c" stroke-width="4"/><text x="149" y="69" text-anchor="middle">一期｜傷緣靠近</text><text x="449" y="69" text-anchor="middle">血流與存活</text><text x="149" y="243" text-anchor="middle" class="small">翻瓣復位與縫合</text><text x="447" y="243" text-anchor="middle" class="small">箭頭示意血流供應</text></svg><figcaption>教學示意｜本研究沒有量到缺血皮瓣存活率，圖中血流與存活只是概念。</figcaption></figure></div>
+    <div><p class="plain">一期癒合（primary intention healing）可想成手術後讓傷緣重新靠近，觀察傷口怎麼癒合。缺血皮瓣存活率（ischemic flap survival rate）要量血流不足時有多少皮瓣組織存活。</p>
+      <p class="take"><strong>Take-home</strong>　翻瓣傷口評分與缺血皮瓣存活要各有證據；後者仍是缺口。</p>
+      <p class="warning"><strong>證據警示</strong>　08 NEEDS_HUMAN_REVIEW；缺血皮瓣存活仍缺直接證據。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>修訂版 Landry 指數（modified Landry index）評估局部傷口，08 保留 <code>NEEDS_HUMAN_REVIEW</code>。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/04-flap-healing.md#%E5%9F%BA%E7%A4%8E%E8%A7%A3%E8%AA%AA">Wiki 第 4 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K1、K3</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a></footer>
+</section>
+<section class="slide" id="slide-10" aria-labelledby="title-10">
+  <p class="topic">口腔傷口</p>
+  <h2 id="title-10" tabindex="-1">同一人的兩個半弓怎麼比較？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-10-title svg-10-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-10-title">一位受試者的分口比較</title><desc id="svg-10-desc">同一牙弓以中線分兩側，另一條時間線表示術前與術後資料。</desc><g transform="translate(15,0)"><path d="M53 218 C31 129 52 20 146 19 C240 20 262 129 239 218 L199 210 C211 158 203 74 146 71 C88 74 81 157 94 210Z" fill="#e6a7a3" stroke="#a16c64" stroke-width="3"/><path d="M96 204 C85 150 90 82 146 74 C201 82 208 150 196 204Z" fill="#f3ccc0"/><ellipse cx="75" cy="108" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="85" cy="77" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="106" cy="54" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="132" cy="41" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="161" cy="41" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="187" cy="54" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="208" cy="77" rx="11" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="218" cy="108" rx="12" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="72" cy="141" rx="13" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="220" cy="141" rx="13" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="73" cy="173" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="219" cy="173" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="79" cy="204" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><ellipse cx="213" cy="204" rx="14" ry="15" fill="#fffdf3" stroke="#6a6960" stroke-width="2"/><path d="M146 79V211" stroke="#25665e" stroke-width="3" stroke-dasharray="7 4"/><path d="M102 120Q110 97 137 87V201H102Z" fill="#63afa1" opacity=".6"/><path d="M155 87Q184 97 192 120V201H155Z" fill="#88afd1" opacity=".7"/></g><text x="105" y="239" text-anchor="middle" class="small">PBM 側</text><text x="224" y="239" text-anchor="middle" class="small">假照射側</text><text x="448" y="56" text-anchor="middle">另一種比較</text><path d="M333 128H557l-15-10m15 10-15 10" stroke="#267366" fill="none" stroke-width="4"/><circle cx="363" cy="128" r="10" fill="#528b81"/><circle cx="527" cy="128" r="10" fill="#528b81"/><text x="363" y="168" text-anchor="middle">術前</text><text x="527" y="168" text-anchor="middle">術後</text></svg><figcaption>教學示意｜左右配置僅作示例，術前術後生活品質與半弓對照分開判讀。</figcaption></figure></div>
+    <div><p class="plain">同一人的兩個半弓用來比 PBM 與假照射。研究在所測時點沒有看到癒合或疼痛的顯著組間差異。手術前後的感受變化是另一種比較。</p>
+      <p class="take"><strong>Take-home</strong>　未見顯著組間差異，不能宣稱等效；術前術後生活品質變化無法單獨歸因 PBM。</p>
+      <p class="warning"><strong>證據警示</strong>　08 CONFLICT／NEEDS_HUMAN_REVIEW；配對與登錄待核，術前術後變化無法單獨歸因 PBM。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>27 人、54 半弓，保留配對處理、Mann–Whitney 檢定（比較兩組排名的統計方法）、登錄時序及生活品質歸因疑點。口腔健康影響量表 14 題版（Oral Health Impact Profile-14, OHIP-14）首見解釋；<code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code> 常駐。</p><p>所測時點癒合、疼痛均未見顯著組間差異。收案為 2022-11-25 至 2024-05-13，原文稱前瞻登錄日為 2024-07-29。另保留小樣本、失訪及半弓間污染限制。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/04-flap-healing.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E5%90%8C%E4%B8%80%E6%82%A3%E8%80%85%E7%9A%84%E5%85%A9%E5%80%8B%E5%8D%8A%E5%BC%93">Wiki 第 4 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K1、K3–K5</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a></footer>
+</section>
+<section class="slide" id="slide-11" aria-labelledby="title-11">
+  <p class="topic">疼痛與合併治療</p>
+  <h2 id="title-11" tabindex="-1">拔牙後比較的是疼痛分數</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-11-title svg-11-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-11-title">拔牙後平均疼痛分數</title><desc id="svg-11-desc">兩組各時點原報均值，單位 VAS（0–10 分），逐點數值見資料表。</desc><path d="M65 35V213H553" stroke="#657b75" stroke-width="2" fill="none"/><path d="M65 213.0H553" stroke="#c0d4c9"/><text x="43" y="218.0" text-anchor="middle" class="small">0</text><path d="M65 177.4H553" stroke="#c0d4c9"/><text x="43" y="182.4" text-anchor="middle" class="small">2</text><path d="M65 141.8H553" stroke="#c0d4c9"/><text x="43" y="146.8" text-anchor="middle" class="small">4</text><path d="M65 106.2H553" stroke="#c0d4c9"/><text x="43" y="111.2" text-anchor="middle" class="small">6</text><path d="M65 70.6H553" stroke="#c0d4c9"/><text x="43" y="75.6" text-anchor="middle" class="small">8</text><path d="M65 35.0H553" stroke="#c0d4c9"/><text x="43" y="40.0" text-anchor="middle" class="small">10</text><text x="138" y="239" text-anchor="middle" class="small">6 小時</text><text x="288" y="239" text-anchor="middle" class="small">24 小時</text><text x="438" y="239" text-anchor="middle" class="small">48 小時</text><text x="300" y="263" text-anchor="middle" class="small">術後時間</text><text x="90" y="23" text-anchor="middle" class="small">VAS（0–10 分）</text><rect x="102" y="196.980" width="30" height="16.020" fill="#075e54"/><text x="117" y="190.98" text-anchor="middle" class="small">0.90</text><rect x="252" y="200.184" width="30" height="12.816" fill="#075e54"/><text x="267" y="194.184" text-anchor="middle" class="small">0.72</text><rect x="402" y="201.608" width="30" height="11.392" fill="#075e54"/><text x="417" y="195.608" text-anchor="middle" class="small">0.64</text><rect x="144" y="168.500" width="30" height="44.500" fill="#235b87"/><text x="159" y="162.5" text-anchor="middle" class="small">2.50</text><rect x="294" y="162.092" width="30" height="50.908" fill="#235b87"/><text x="309" y="156.092" text-anchor="middle" class="small">2.86</text><rect x="444" y="162.092" width="30" height="50.908" fill="#235b87"/><text x="459" y="156.092" text-anchor="middle" class="small">2.86</text></svg><figcaption>拔牙後疼痛（平均值）｜<a href="https://medicinaoral.com/medoralfree01/aop/24228.pdf">Card 03 K3，原文 PDF p.5 Table 2</a>。</figcaption></figure><div class="legend" aria-label="圖例"><b>PBM＋拔牙</b><b>拔牙對照</b></div><details><summary>查看圖表資料</summary><table id="data-11"><caption>圖表資料：兩組平均值</caption><thead><tr><th scope="col">術後時間</th><th scope="col">PBM＋拔牙</th><th scope="col">拔牙對照</th></tr></thead><tbody><tr><th scope="row">6 小時</th><td>0.90</td><td>2.50</td></tr><tr><th scope="row">24 小時</th><td>0.72</td><td>2.86</td></tr><tr><th scope="row">48 小時</th><td>0.64</td><td>2.86</td></tr></tbody></table></details></div>
+    <div><p class="plain">疼痛視覺類比量表（visual analogue scale, VAS）讓受試者表示自己有多痛。這項研究在術後 6、24、48 小時的 PBM 組平均疼痛分數較低。</p>
+      <p class="take"><strong>Take-home</strong>　所見是短期疼痛差異，不能推為傷口癒合。</p>
+      <p class="warning"><strong>證據警示</strong>　03 CONFLICT／NEEDS_HUMAN_REVIEW；無 sham、同人多牙可能相關、劑量待核。44 人共 101 顆牙，按牙分派。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留無 sham、同人多牙群聚、等效界值未確認、患者未盲和用藥自報，劑量 <code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code>、次要終點 <code>Not reported</code>、CC Attribution 版本未明。表格不附效益百分比或臨床推薦。</p><table><caption>原報 Table 2：平均 VAS（0–10 分）</caption><thead><tr><th scope="col">術後時間</th><th scope="col">PBM＋拔牙</th><th scope="col">拔牙對照</th><th scope="col">p 值</th></tr></thead><tbody><tr><th scope="row">6 小時</th><td>0.90</td><td>2.50</td><td>&lt;0.001</td></tr><tr><th scope="row">24 小時</th><td>0.72</td><td>2.86</td><td>&lt;0.001</td></tr><tr><th scope="row">48 小時</th><td>0.64</td><td>2.86</td><td>&lt;0.001</td></tr></tbody></table><p>PBM 51 顆、對照 50 顆，評估者盲化，兩組均單次使用 dipyrone。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E7%AC%AC%E4%B8%89%E5%A4%A7%E8%87%BC%E9%BD%92%E7%9F%AD%E6%9C%9F%E7%96%BC%E7%97%9B">Wiki 第 5 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/03-isolan-2021.md">03 K1–K4</a> · <a href="https://medicinaoral.com/medoralfree01/aop/24228.pdf">原文 PDF p.5 Table 2</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/">Isolan 2021</a></footer>
+</section>
+<section class="slide" id="slide-12" aria-labelledby="title-12">
+  <p class="topic">疼痛與合併治療</p>
+  <h2 id="title-12" tabindex="-1">一起加了 HA 和護板，能歸功給誰？</h2>
+  <div class="body">
+    <div class="visual"><figure><svg viewBox="0 0 600 270" role="img" aria-labelledby="svg-12-title svg-12-desc" xmlns="http://www.w3.org/2000/svg"><title id="svg-12-title">牙齦切除研究的平行流程</title><desc id="svg-12-desc">兩組同用 PBM，只有一組同時加 HA 與護板，再比較癒合評分和疼痛。</desc><path d="M22 160Q66 115 113 150V185H22Z" fill="#e6a7a3"/><path d="M39 109Q63 86 85 106L82 151Q65 175 49 149Z" fill="#fffdf3" stroke="#6a6960" stroke-width="3"/><path d="M126 137H156L207 78H239M156 137L208 190H239" stroke="#35796b" stroke-width="4" fill="none"/><circle cx="274" cy="78" r="29" fill="#dbb358"/><circle cx="274" cy="190" r="29" fill="#dbb358"/><path d="M325 78H530M325 190H530" stroke="#35796b" stroke-width="4"/><path d="M401 155q-19 26 0 36q19-10 0-36ZM431 153q27-12 53 0l-5 14q-22-12-43 0Z" fill="#5b9fb7"/><text x="73" y="223" text-anchor="middle" class="small">牙齦切除</text><text x="274" y="84" text-anchor="middle" class="small">PBM</text><text x="274" y="196" text-anchor="middle" class="small">PBM</text><text x="443" y="223" text-anchor="middle" class="small">加 HA 與護板</text><text x="526" y="58" text-anchor="middle" class="small">評估</text><text x="526" y="171" text-anchor="middle" class="small">評估</text></svg><figcaption>教學示意｜兩組都照光；下方分支同時加凝膠與護板。圖只說明研究設計。</figcaption></figure></div>
+    <div><p class="plain">兩組都接受 PBM，只有一組同時加透明質酸（hyaluronic acid, HA）與護板（guard）。這組在第 7、14、21 日的 Landry 癒合評分較高；疼痛未見顯著組間差異。</p>
+      <p class="take"><strong>Take-home</strong>　從這個設計無法拆出 HA、護板或 PBM 各自的效果。</p>
+      <p class="warning"><strong>證據警示</strong>　09 PASS_WITH_LIMITS；兩組均照光，HA 與護板同時加入。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留各組 13 人、原測時點與統計、回溯登錄、盲化與組織學限制及 <code>PASS_WITH_LIMITS</code>。</p><p>26 人各組 13 人。第 7、14、21 日 Landry 較高（原報 p＝0.03、0.02、0.006），第 3 日和疼痛未見顯著差異。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md#%E7%A0%94%E7%A9%B6%E6%A1%88%E4%BE%8B%E7%89%99%E9%BD%A6%E5%88%87%E9%99%A4%E5%BE%8C%E7%9A%84%E9%99%84%E5%8A%A0%E4%BB%8B%E5%85%A5">Wiki 第 5 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/09-yakout-2023.md">09 K1、K3–K4</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/">Yakout 2023</a></footer>
+</section>
+<section class="slide" id="slide-13" aria-labelledby="title-13">
+  <p class="topic">證據判讀</p>
+  <h2 id="title-13" tabindex="-1">回顧中的百分比要先問什麼？</h2>
+  <div class="body">
+    <div class="visual"><table><caption>原報數字與判讀缺口</caption><thead><tr><th scope="col">原報</th><th scope="col">缺少的資訊</th></tr></thead><tbody><tr><th scope="row">VAS：CI 98–99%</th><td>可讀的群間效應量及其區間</td></tr><tr><th scope="row">AO：35／160；PBM 組 0.52%</th><td>PBM 組分母與對照率</td></tr></tbody></table></div>
+    <div><p class="plain">信賴區間（confidence interval, CI）用來描述估計的不確定性，要先找它對應的效應量。齒槽骨炎（alveolar osteitis, AO）的比率則要能看出每一組有多少事件和多少觀察。</p>
+      <p class="take"><strong>Take-home</strong>　看不到群間效應量或各組分母，就無法採用這些數字推算改善幅度。</p>
+      <p class="warning"><strong>證據警示</strong>　05 CONFLICT／NEEDS_HUMAN_REVIEW；原報百分比無法支持合併療效。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>保留原報、比較資料缺漏、回顧範圍及 <code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code>。</p><p>回顧納入 3 項研究、124 人，追蹤 7–90 日。AO 的 35／160 與 0.52% 分組意義待核。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md#%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%8D%E8%83%BD%E7%9B%B4%E6%8E%A5%E6%8E%A1%E7%94%A8%E5%90%88%E4%BD%B5%E7%99%82%E6%95%88">Wiki 第 5 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/05-giansiracusa-2024.md">05 K1–K4</a> · <a href="https://www.mdpi.com/2077-0383/13/18/5402">Giansiracusa 2024</a></footer>
+</section>
+<section class="slide" id="slide-14" aria-labelledby="title-14">
+  <p class="topic">證據判讀</p>
+  <h2 id="title-14" tabindex="-1">表格和正文不一致時怎麼讀？</h2>
+  <div class="body">
+    <div class="visual"><table><caption>先看比較用的資料</caption><thead><tr><th scope="col">項目</th><th scope="col">原報與限制</th></tr></thead><tbody><tr><th scope="row">異質性</th><td>YES／NO 編碼下的數字，無法確認群間效果一致。</td></tr><tr><th scope="row">骨修復</th><td>Table 4 寫 YES，正文報告無顯著組間差異。</td></tr></tbody></table></div>
+    <div><p class="plain">異質性（heterogeneity）是研究結果彼此的差異。先確認統計比較的資料是什麼。骨修復表格寫 YES，正文卻沒有顯著組間差異，應一併保留。</p>
+      <p class="take"><strong>Take-home</strong>　看到 YES 或異質性數值為零，要回頭確認它描述的是什麼。</p>
+      <p class="warning"><strong>證據警示</strong>　05 CONFLICT／NEEDS_HUMAN_REVIEW；表文矛盾，無法確立骨修復效果。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>Cochran Q（Cochran&#x27;s Q statistic）與 I²（I-squared statistic）用於描述所分析結果的研究間差異，保留原報 Q＝0／I²＝0% 的 YES／NO 編碼限制、選文時程、偏差工具、劑量缺漏和骨研究數。保留 <code>CONFLICT</code>、<code>NEEDS_HUMAN_REVIEW</code>、<code>Not reported</code>、<code>Not applicable</code>。</p><p>骨資料僅一項研究；文中同時出現無日期限制與自 2015 年起，RCT 以 NOS（Newcastle–Ottawa Scale，偏差評估工具）評讀，原試驗未獨立重審。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/05-extraction-and-adjuncts.md#%E8%AD%89%E6%93%9A%E9%99%90%E5%88%B6%E5%A6%82%E4%BD%95%E8%AE%80-05-%E7%9A%84%E6%95%B4%E5%90%88%E7%B5%90%E6%9E%9C">Wiki 第 5 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/05-giansiracusa-2024.md">05 K1–K4</a> · <a href="https://www.mdpi.com/2077-0383/13/18/5402">Giansiracusa 2024</a></footer>
+</section>
+<section class="slide" id="slide-15" aria-labelledby="title-15">
+  <p class="topic">證據判讀</p>
+  <h2 id="title-15" tabindex="-1">讀者練習：誰和誰比，量了什麼？</h2>
+  <div class="body">
+    <div class="visual"><form id="quiz"><fieldset><legend>Card 03 的平均 VAS 較低，支持哪個說法？</legend>
+<label><input type="radio" name="answer" value="A">A. 拔牙傷口癒合更快。</label>
+<label><input type="radio" name="answer" value="B">B. 這項研究在所測時點，PBM 組報告的平均疼痛較低。</label>
+<label><input type="radio" name="answer" value="C">C. PBM 組與對照組已證明等效。</label>
+</fieldset><button type="submit">確認答案</button><p id="quiz-feedback" role="status"></p></form></div>
+    <div><p class="plain">分析單位（unit of analysis）是分析中被計入的觀察單位。同一個人的兩顆牙或兩個半弓，可能彼此相關。</p>
+      <p class="take"><strong>Take-home</strong>　先辨認比較、分析單位與終點，才能說出結果適用範圍。</p>
+      <p class="warning"><strong>證據警示</strong>　03 NEEDS_HUMAN_REVIEW；本題限於研究條件下的短期 VAS。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>解釋群聚（clustering，同一人的觀察可能相關）與配對（pairing，同一人的兩側成對比較），沿用各卡的警示。未達顯著不作等效解讀。</p><table><caption>四案例研究比較</caption><thead><tr><th scope="col">案例</th><th scope="col">比較</th><th scope="col">終點／分析考量</th></tr></thead><tbody><tr><th scope="row">02 腭側供區</th><td>PBM 與 sham</td><td>剩餘面積／同人兩側</td></tr><tr><th scope="row">03 拔牙</th><td>PBM＋拔牙與拔牙</td><td>疼痛／按牙分派、同人多牙群聚</td></tr><tr><th scope="row">08 牙冠增長</th><td>PBM 與 sham</td><td>翻瓣癒合及疼痛／半弓配對</td></tr><tr><th scope="row">09 牙齦切除</th><td>共同 PBM，再比較是否同時加 HA 與護板</td><td>評分和疼痛／整體介入</td></tr></tbody></table></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/06-evidence-and-safety.md#%E5%9F%BA%E7%A4%8E%E8%A7%A3%E8%AA%AA">Wiki 第 6 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K1、K3–K5</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/03-isolan-2021.md">03 K1、K4</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K1、K5</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/09-yakout-2023.md">09 K4</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/">Isolan 2021</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/">Yakout 2023</a></footer>
+</section>
+<section class="slide full" id="slide-16" aria-labelledby="title-16">
+  <p class="topic">臨床應用界線</p>
+  <h2 id="title-16" tabindex="-1">把結論帶回臨床問題</h2>
+  <div class="body">
+    <div class="visual"><table id="summary"><caption>七個臨床問題的證據界線</caption><thead><tr><th scope="col">臨床提問</th><th scope="col">目前可以說到哪裡</th><th scope="col">來源與關鍵界線</th></tr></thead><tbody><tr><th scope="row">光照可能怎麼影響細胞？</th><td>粒線體能量與氧化還原訊號提供可能的細胞機轉。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/01-hamblin-2018.md">01 K1–K3</a> · 機轉綜述及細胞例不足以證實人體療效。</td></tr><tr><th scope="row">FGG 腭側傷口是否較早縮小？</th><td>該供區試驗第 7、14 日 RWA 較小。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K1–K5</a> · 後兩時點未見顯著差異，時程、劑量和出血疑點仍在。</td></tr><tr><th scope="row">拔牙後是否比較不痛？</th><td>該研究的術後 6、24、48 小時平均 VAS 較低。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/03-isolan-2021.md">03 K1–K4</a> · 無 sham、群聚及劑量待核，未量傷口癒合。</td></tr><tr><th scope="row">牙冠增長術後翻瓣傷口是否改善？</th><td>該半弓比較在所測時點未見癒合和疼痛的顯著組間差異。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K1、K3–K5</a> · 不足以確立等效，配對、登錄與歸因待核。</td></tr><tr><th scope="row">PBM 能改善缺血皮瓣存活嗎？</th><td>核准範圍內缺乏直接的存活率證據。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/08-da-silva-azevedo-2026.md">08 K1、K3</a> · 翻瓣傷口評分不能回答缺血存活。</td></tr><tr><th scope="row">PBM 能改善骨修復嗎？</th><td>回顧表格與正文結論有疑點，現有資料無法確立骨修復效益。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/05-giansiracusa-2024.md">05 K2–K4</a> · 保留 <code>CONFLICT</code>，不採合併效果。</td></tr><tr><th scope="row">有最佳照射劑量嗎？</th><td>六篇文獻無法確立人體口腔傷口的最佳照射劑量。</td><td><a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/02-dosimetry.md#%E8%AD%89%E6%93%9A%E9%99%90%E5%88%B6">Wiki 第 2 章</a> · 細胞例、教學換算及研究參數不組成臨床處方。</td></tr></tbody></table></div>
+    <div><p class="plain">講一個研究結果時，用一句話說出「什麼人或傷口、跟什麼比、哪個時間量到什麼」，並指出哪一項還不能確定。</p>
+      <p class="take"><strong>Take-home</strong>　能說清楚來源與界線，就能區分研究訊號與臨床建議。</p>
+      <p class="warning"><strong>證據警示</strong>　總結限於核准六篇文獻，既有 CONFLICT／NEEDS_HUMAN_REVIEW 保留，不能作為完整臨床指引。</p>
+    </div>
+  </div>
+  <aside class="research" hidden><h3>研究細節</h3><p>回顧 02 出血 <code>CONFLICT</code>、結果限制與缺值。保留疼痛、癒合和皮瓣存活的差別，不組合成臨床療程。</p></aside>
+  <footer class="sources"><strong>來源</strong>　<a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/wiki/06-evidence-and-safety.md#%E8%AD%89%E6%93%9A%E9%99%90%E5%88%B6">Wiki 第 6 章</a> · <a href="https://github.com/nycuhhtc-debug/pbm-oral-wound-wiki/blob/main/cards/02-morshedzadeh-2022.md">02 K4–K5</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5844808/">Hamblin 2018</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9131644/">Morshedzadeh 2022</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC8141316/">Isolan 2021</a> · <a href="https://www.mdpi.com/2077-0383/13/18/5402">Giansiracusa 2024</a> · <a href="https://link.springer.com/article/10.1007/s10103-026-04950-0">da Silva Azevedo 2026</a> · <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10612174/">Yakout 2023</a></footer>
+</section>
+</main>
+<nav class="nav" aria-label="投影片導覽"><div class="wrap nav-inner">
+  <button id="prev" type="button">← 上一張</button>
+  <output id="page" aria-live="polite"></output>
+  <button id="next" type="button">下一張 →</button>
+</div></nav>
+<script>
+  const slides = [...document.querySelectorAll(".slide")];
+  const basic = document.querySelector("#basic");
+  const advanced = document.querySelector("#advanced");
+  const previous = document.querySelector("#prev");
+  const next = document.querySelector("#next");
+  const page = document.querySelector("#page");
+  let index = 0;
+
+  function showSlide(target, focusTitle = true) {
+    if (target < 0 || target >= slides.length) return;
+    index = target;
+    slides.forEach((slide, i) => { slide.hidden = i !== index; });
+    previous.disabled = index === 0;
+    next.disabled = index === slides.length - 1;
+    page.textContent = `第 ${index + 1} / ${slides.length} 張`;
+    if (focusTitle) {
+      window.scrollTo(0, 0);
+      slides[index].querySelector("h2").focus({ preventScroll: true });
+    }
+  }
+  function setMode(expanded) {
+    basic.setAttribute("aria-pressed", String(!expanded));
+    advanced.setAttribute("aria-pressed", String(expanded));
+    document.querySelectorAll(".research").forEach(detail => { detail.hidden = !expanded; });
+  }
+  basic.addEventListener("click", () => setMode(false));
+  advanced.addEventListener("click", () => setMode(true));
+  previous.addEventListener("click", () => showSlide(index - 1));
+  next.addEventListener("click", () => showSlide(index + 1));
+  document.addEventListener("keydown", event => {
+    if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey || event.defaultPrevented) return;
+    if (event.target instanceof Element && event.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+      event.preventDefault();
+      showSlide(index + (event.key === "ArrowRight" ? 1 : -1));
+    }
+  });
+
+  const calculator = document.querySelector("#calculator");
+  const calcInputs = [...calculator.querySelectorAll("input")];
+  const calcOutputs = [...calculator.querySelectorAll("output")];
+  const calcStatus = calculator.querySelector("#calc-status");
+  function calculate() {
+    const [milliwatts, seconds, area] = calcInputs.map(input => input.valueAsNumber);
+    const watts = milliwatts / 1000;
+    const energy = watts * seconds;
+    const results = [energy, watts / area, energy / area];
+    const validInputs = [milliwatts, seconds, area].every(Number.isFinite)
+      && milliwatts >= 0 && seconds >= 0 && area > 0;
+    const valid = validInputs && results.every(Number.isFinite);
+    calcOutputs.forEach((output, i) => {
+      output.value = valid ? String(Number(results[i].toPrecision(7))) : "—";
+    });
+    calcStatus.textContent = valid ? "" : validInputs ? "數值超出可計算範圍。"
+      : "請輸入有效數值。功率與時間可為零，面積必須大於零。";
+  }
+  calculator.addEventListener("input", calculate);
+  calculator.addEventListener("submit", event => event.preventDefault());
+  calculator.addEventListener("reset", () => queueMicrotask(calculate));
+
+  const quiz = document.querySelector("#quiz");
+  const feedback = document.querySelector("#quiz-feedback");
+  quiz.addEventListener("submit", event => {
+    event.preventDefault();
+    const choice = new FormData(quiz).get("answer");
+    const reason = "正確答案為 B。VAS 量的是疼痛。研究未量傷口面積，也未確立兩組等效。";
+    feedback.textContent = choice === "B" ? `答對了！${reason}`
+      : choice === "A" ? `再看看研究量了什麼。${reason}`
+      : choice === "C" ? `疼痛比較無法證明等效。${reason}`
+      : "請先選擇一個答案。";
+  });
+  quiz.addEventListener("change", () => { feedback.textContent = ""; });
+
+  setMode(false);
+  showSlide(0, false);
+  calculate();
+</script>
+</body>
+</html>
