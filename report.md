@@ -1,3 +1,13 @@
+# 任務 08：互動式教學簡報第二階段
+
+**狀態**：HTML 與自動驗證完成。使用者確認完成人工閱讀與功能驗收，核准發布。
+
+- [16 張新版簡報](slides/teaching-deck.html)採基礎／進階雙模式，內嵌原創 SVG、教學劑量計算器、單選題、RWA 折線圖、VAS 長條圖及七項臨床問題總結。
+- [首頁](index.html)並列新版與[原版 14 張](slides/deck.html)。原版、Wiki 正文與 Evidence Cards 均保留。
+- [人工審核與測試結果](reviews/task08-teaching-review.md)記錄 128 組 Chromium 頁面狀態、14 個原報均值、互動驗證及本機 Pages 路徑模擬。原文站台與實際 Pages 部署尚待連線驗證，未收到初學者逐題回述紀錄。
+
+---
+
 # 任務 07：GitHub Pages 專案首頁
 
 以包含 PR #4 的 main（9dd4d23）建立工作分支。[首頁](index.html)整合教學目標、六章 Wiki、14 張簡報、LLM Wiki 工作流程、人工關卡與回退規則，以及來源與專案紀錄。Markdown 指向 GitHub 檔案頁。簡報採 `slides/deck.html` 相對路徑，可沿用專案網站的掛載路徑。
